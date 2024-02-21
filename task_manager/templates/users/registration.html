@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+  <h1 class="my-4">
+    Регистрация
+  </h1>
+  <form action="{% url 'users:create_user' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.first_name.id_for_label }}">Имя</label>    
+        {{ form.first_name }}
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.last_name.id_for_label }}">Фамилия</label>    
+        {{ form.last_name }}
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.username.id_for_label }}">Имя пользователя</label>    
+        {{ form.username }}
+        <div class="form-text">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.password1.id_for_label }}">Пароль</label>    
+        {{ form.password1 }}
+        <div class="form-text"><ul><li>Ваш пароль должен содержать как минимум 3 символа.</li></ul></div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>    
+        {{ form.password2 }}
+        <div class="form-text">Для подтверждения введите, пожалуйста, пароль ещё раз.</div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Зарегистрировать">
+  </form>
+</div>
+{% endblock %}

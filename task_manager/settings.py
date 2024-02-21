@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['djangoapp-h53n.onrender.com', '127.0.0.1']
 
@@ -47,7 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'task_manager',
+    'users',
 ]
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
@@ -91,8 +95,8 @@ DATABASES = {
     }
 }
 
-
-DATABASES['default'] = dj_database_url.config()
+if DEBUG == False:
+    DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -143,3 +147,7 @@ STATIC_URL = '/static/'
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"

@@ -16,14 +16,27 @@
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">{% trans 'Пользователи' %}</a>
-          </li>    
-          <li class="nav-item">
-            <a class="nav-link" href="">{% trans 'Вход' %}</a>
+            <a class="nav-link" href="{% url 'users:users_show' %}">{% trans 'Пользователи' %}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">{% trans 'Регистрация' %}</a>
-          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="">{% trans 'Метки' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">{% trans 'Задачи' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:logout' %}">{% trans 'Выход' %}</a>
+            </li>
+          {% else %}
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:login' %}">{% trans 'Вход' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:create_user' %}">{% trans 'Регистрация' %}</a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </nav>

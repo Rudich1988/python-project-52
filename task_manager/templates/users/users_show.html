@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>   
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <h1 class="my-4">
+    Пользователи
+  </h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Имя пользователя</th>
+        <th>Полное имя</th>
+        <th>Дата создания</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in users %}
+      <tr>
+        <td>{{ person.id }}</td>
+        <td>{{ person.username }}</td>
+        <td>{{ person.first_name }} {{ person.last_name }}</td>
+        <td>{{ person.created_at }}</td>
+        {% if user.is_authenticated %}
+          {% if user.id == person.id %}
+            <td>
+              <a href="{% url 'users:user_update' user.id %}">Изменить</a>
+              <br>
+              <a href="{% url 'users:user_delete' user.id %}">Удалить</a>
+            </td>
+          {% else %}
+            <td>
+              <a href="{% url 'users:users_show' %}">Изменить</a>
+              <br>
+              <a href="{% url 'users:users_show' %}">Удалить</a>
+            </td>
+          {% endif %}
+        {% else %}
+          <td>
+            <a href="{% url 'users:login' %}">Изменить</a>
+            <br>
+            <a href="{% url 'users:login' %}">Удалить</a>
+          </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  <table>
+{% endblock %}
