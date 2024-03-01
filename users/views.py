@@ -53,7 +53,7 @@ def logoutview(request):
 class UsersShowView(SuccessMessageMixin, ListView):
     model = CustomUser
     template_name = 'users/users_show.html'
-    success_message = 'блиннннн'
+    success_message = 'проверка сообщения'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

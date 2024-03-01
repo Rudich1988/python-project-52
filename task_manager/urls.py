@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from task_manager import views
+from task_manager import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
 ]
+
+if settings.DEBUG == True:
+    import debug_toolbar
+
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
