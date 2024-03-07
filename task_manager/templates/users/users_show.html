@@ -10,6 +10,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>   
       {% endif %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>   
+      {% endif %}
     {% endfor %}
   {% endif %}
   <h1 class="my-4">
@@ -26,33 +32,17 @@
       </tr>
     </thead>
     <tbody>
-      {% for person in users %}
+      {% for user in users %}
       <tr>
-        <td>{{ person.id }}</td>
-        <td>{{ person.username }}</td>
-        <td>{{ person.first_name }} {{ person.last_name }}</td>
-        <td>{{ person.created_at }}</td>
-        {% if user.is_authenticated %}
-          {% if user.id == person.id %}
-            <td>
-              <a href="{% url 'users:user_update' user.id %}">Изменить</a>
-              <br>
-              <a href="{% url 'users:user_delete' user.id %}">Удалить</a>
-            </td>
-          {% else %}
-            <td>
-              <a href="{% url 'users:users_show' %}">Изменить</a>
-              <br>
-              <a href="{% url 'users:users_show' %}">Удалить</a>
-            </td>
-          {% endif %}
-        {% else %}
-          <td>
-            <a href="{% url 'users:login' %}">Изменить</a>
-            <br>
-            <a href="{% url 'users:login' %}">Удалить</a>
-          </td>
-        {% endif %}
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ user.created_at }}</td>
+        <td>
+          <a href="{% url 'users:user_update' user.id %}">Изменить</a>
+          <br>
+          <a href="{% url 'users:user_delete' user.id %}">Удалить</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
