@@ -29,24 +29,6 @@ class UserRegistrationForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Подтверждение пароля', 'required id': 'id_password2', 'maxlength': 150, 'autocomplete': 'new-password'})
 
 
-'''
-class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'Имя пользователя',
-        'required id': 'id_username',
-        'maxlength': 150,
-        'autocomplete': 'username',
-        'autofocus autocapitalize': 'none'
-    }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'Пароль',
-        'required id': 'id_password',
-        'autocomplete': 'current-password',
-    }))
-'''
-
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=forms.PasswordInput())

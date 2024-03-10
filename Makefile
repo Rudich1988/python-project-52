@@ -6,3 +6,6 @@ dev:
 
 build:
 	./build.sh
+
+test:
+	python3 manage.py test

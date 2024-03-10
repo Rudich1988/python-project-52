@@ -19,7 +19,7 @@ class ModificationUserMixin(LoginRequiredMixin):
                 return redirect('users:users_show')
         else:
             messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход.')
-            return redirect('users:login')
+            return redirect('login')
         
 
 

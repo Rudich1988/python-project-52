@@ -44,3 +44,4 @@ class UserUpdateView(ModificationUserMixin, SuccessMessageMixin, UpdateView):
     template_name = 'users/user_update.html'
     success_url = reverse_lazy('users:users_show')
     success_message = 'Пользователь успешно изменен'
+    
