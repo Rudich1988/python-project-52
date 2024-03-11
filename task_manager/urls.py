@@ -24,6 +24,7 @@ urlpatterns = [
     path('logout/', views.logoutview, name='logout'),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
+    path('statuses/', include('statuses.urls', namespace='statuses')),
 ]
 
 if settings.DEBUG == True:

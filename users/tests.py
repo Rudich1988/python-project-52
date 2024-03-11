@@ -6,6 +6,8 @@ from django.urls import reverse
 
 from users.models import CustomUser
 
+#тесты
+
 
 class UsersShowTestCase(TestCase):
     fixtures = ['users.json']
@@ -52,7 +54,6 @@ class U(TestCase):
         self.user = CustomUser.objects.get(username='test1')
         self.path = reverse('users:user_update', kwargs={'pk': self.user.id})
         self.data = {'username': 'test1_correct', 'password1': self.user.password, 'password2': self.user.password, 'first_name': self.user.first_name, 'last_name': self.user.last_name}
-
     
     def test_user_update_get(self):
         response = self.client.get(self.path)
@@ -92,7 +93,7 @@ class D(TestCase):
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='test1')
-        path = self.path = reverse('users:user_delete', kwargs={'pk': self.user.id})
+        self.path = reverse('users:user_delete', kwargs={'pk': self.user.id})
 
     def test_user_delete_success(self):
         self.client.force_login(self.user)
