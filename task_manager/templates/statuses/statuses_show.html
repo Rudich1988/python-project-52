@@ -14,6 +14,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>   
       {% endif %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>   
+      {% endif %}
     {% endfor %}
   {% endif %}
 <h1 class="my-4">       
@@ -39,7 +45,11 @@
       <td>
         <a href="{% url 'statuses:status_update' status.id %}">Изменить</a>
         <br>
-        <a href="{% url 'statuses:status_delete' status.id %}">Удалить</a>
+        {% if status.statuses.count == 0 %}
+          <a href="{% url 'statuses:status_delete' status.id %}">Удалить</a>
+        {% else %}
+          <a href="{% url 'statuses:status_delete_error' status.id %}">Удалить</a>
+        {% endif %}
       </td>
     </tr>
     {% endfor %}

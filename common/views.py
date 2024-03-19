@@ -1,13 +1,12 @@
 from typing import Any
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http.request import HttpRequest as HttpRequest
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
 
-class ModificationUserMixin(LoginRequiredMixin):
-    
+class ModificationUserMixin(LoginRequiredMixin):   
     def dispatch(self, request, *args, **kwargs):
         dispatch = super().dispatch(request, *args, **kwargs)
         user = request.user
@@ -20,3 +19,24 @@ class ModificationUserMixin(LoginRequiredMixin):
         else:
             messages.info(request, 'Вы не авторизованы! Пожалуйста, выполните вход.')
             return redirect('login')
+        
+
+class StatusDeleteMixin(LoginRequiredMixin):
+    def dispatch(self, request, *args, **kwargs):
+        dispatch = super().dispatch(request, *args, **kwargs)
+        if len(list(self.object.statuses.all())) == 0:
+            return dispatch
+        messages.error(request, 'Невозможно удалить статус, потому что он используется')
+        return redirect('statuses:statuses_show')
+    
+
+class TaskDeleteMixin(LoginRequiredMixin):
+    def dispatch(self, request, *args, **kwargs):
+        dispatch = super().dispatch(request, *args, **kwargs)
+        user = request.user
+        if self.object.author == user and user.is_authenticated:
+            self.object.delete()
+            messages.success( request, 'Задача успешно удалена')
+            return redirect('tasks:tasks_show')
+        messages.error(request, 'Задачу может удалить только ее автор')
+        return redirect('tasks:tasks_show')

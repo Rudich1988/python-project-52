@@ -27,7 +27,7 @@
               <a class="nav-link" href="">{% trans 'Метки' %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">{% trans 'Задачи' %}</a>
+              <a class="nav-link" href="{% url 'tasks:tasks_show' %}">{% trans 'Задачи' %}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">{% trans 'Выход' %}</a>

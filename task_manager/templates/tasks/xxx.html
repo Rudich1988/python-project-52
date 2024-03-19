@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+  <h1 class="my-4">      
+    Удаление статуса
+  </h1>    
+  <p>Вы уверены, что хотите удалить {{ name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <a class="btn btn-danger mb-3" href="{% url 'tasks:task_delete' id %}">Да, удалить</a>
+  </form>
+
+  </div>
+{% endblock %}

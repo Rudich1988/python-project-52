@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
     path('statuses/', include('statuses.urls', namespace='statuses')),
+    path('tasks/', include('tasks.urls', namespace='tasks')),
 ]
 
 if settings.DEBUG == True:

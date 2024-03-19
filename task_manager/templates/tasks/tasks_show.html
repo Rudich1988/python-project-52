@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class="container wrapper flex-grow-1">
+    {% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>   
+      {% endif %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>   
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <h1 class="my-4">    
+    Задачи
+  </h1>
+  <a class="btn btn-primary mb-3" href="{% url 'tasks:task_create' %}" role="button">Создать задачу</a> 
+  <div class="card mb-3">
+    <div class="card-body bg-light">
+      <form class="form-inline center" action="{% url 'tasks:tasks_show' %}" method="get">
+        {% bootstrap_form form %}
+        <input class="btn btn-primary" type="submit" value="Показать">
+      </form>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Статус</th>
+        <th>Автор</th>
+        <th>Исполнитель</th>
+        <th>Дата создания</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if tasks %}
+          {% for task in tasks %}
+            <tr>
+              <td>
+                {{ task.id }}
+              </td>
+              <td>
+                <a href="">{{ task.name }}</a>
+              </td>
+              <td>
+                {{ task.status.name }}
+              </td>
+              <td>
+                {{ task.author.first_name }} {{ task.author.last_name }}
+              </td>
+              <td>
+                {% if task.executor %}
+                  {{ task.executor }}
+                {% else %}
+
+                {% endif %}
+              </td>
+              <td>
+                {{ task.created_at }}
+              </td>
+              <td>
+                <a href="">Изменить</a>
+              </td>
+              <br>
+              <td>
+                {% if task.author == user %}
+                  <a href="{% url 'tasks:task_delete_template' task.id %}">Удалить</a>
+                {% else %}
+                  <a href="{% url 'tasks:task_delete' task.id %}">Удалить</a>
+                {% endif %}
+
+              </td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
