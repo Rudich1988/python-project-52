@@ -9,7 +9,7 @@
   </h1>
   <form action="{% url 'users:create_user' %}" method="post" class="form">
     {% csrf_token %}
-      {% bootstrap_form form %}
+    {% bootstrap_form form %}
     <input class="btn btn-primary" type="submit" value="Зарегистрировать">
   </form>
 </div>

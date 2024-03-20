@@ -7,20 +7,16 @@ from users.models import CustomUser
 
 
 class TaskCreateForm(forms.ModelForm):
-    #STATUSES_CHOICES = ((f'{obj.name}', obj) for obj in Status.objects.all())
-    #USERS_CHOICES = ((f'{obj.first_name} {obj.last_name}', obj) for obj in CustomUser.objects.all())
     name = forms.CharField(label='Имя')
-    description = forms.CharField(label='Описание', widget=forms.Textarea)
-    status = forms.ModelChoiceField(label='Статус', queryset=Status.objects.all())
-    executor = forms.ModelChoiceField(label='Исполнитель', queryset=CustomUser.objects.all())
-    author = forms.ModelChoiceField(label='Автор', queryset=CustomUser.objects.all())
-    #status = forms.ChoiceField(label='Статус', widget=forms.Select, choices=STATUSES_CHOICES)
-    #executor = forms.ChoiceField(label='Исполнитель', widget=forms.Select, choices=USERS_CHOICES)
-    #author = forms.ChoiceField(label='Автор', widget=forms.Select, choices=USERS_CHOICES)
+    description = forms.CharField(widget=forms.Textarea)
+    status = forms.ModelChoiceField(queryset=Status.objects.all())
+    executor = forms.ModelChoiceField(queryset=CustomUser.objects.all(), required=False)
+    author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
 
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor']
+        labels = {'name': 'Имя', 'description': 'Описание', 'status': 'Статус', 'executor': 'Испонитель'}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -33,6 +29,7 @@ class TaskCreateForm(forms.ModelForm):
 class TaskSearchForm(forms.Form):
     status = forms.ModelChoiceField(label='Статус', queryset=Status.objects.all(), required=False)
     executor = forms.ModelChoiceField(label='Исполнитель', queryset=CustomUser.objects.all(), required=False)
+    user_tasks = forms.BooleanField(label='Только свои задачи', required=False)
 
     class Meta:
         model = Task

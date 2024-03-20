@@ -53,7 +53,7 @@
                 {{ task.id }}
               </td>
               <td>
-                <a href="">{{ task.name }}</a>
+                <a href="{% url 'tasks:task_show_template' task.id %}">{{ task.name }}</a>
               </td>
               <td>
                 {{ task.status.name }}
@@ -73,15 +73,12 @@
               </td>
               <td>
                 <a href="">Изменить</a>
-              </td>
               <br>
-              <td>
                 {% if task.author == user %}
                   <a href="{% url 'tasks:task_delete_template' task.id %}">Удалить</a>
                 {% else %}
                   <a href="{% url 'tasks:task_delete' task.id %}">Удалить</a>
                 {% endif %}
-
               </td>
             </tr>
           {% endfor %}

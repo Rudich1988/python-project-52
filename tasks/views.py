@@ -29,6 +29,7 @@ class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
        instance.author=self.request.user
        return super(TaskCreateView, self).form_valid(form)
 
+
 class TasksShowView(LoginRequiredMixin, ListView):
     model = Task
     template_name = 'tasks/tasks_show.html'
@@ -36,6 +37,15 @@ class TasksShowView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         status = self.request.GET.get('status')
         executor = self.request.GET.get('executor')
+        show_user_tasks = self.request.GET.get('user_tasks')
+        if show_user_tasks:
+            if status and executor:
+                return Task.objects.filter(author=self.request.user, status=status, executor=executor)
+            if executor:
+                return Task.objects.filter(author=self.request.user, executor=executor)
+            if status:
+                return Task.objects.filter(author=self.request.user, status=status)
+            return Task.objects.filter(author=self.request.user)
         if status and executor:
             return Task.objects.filter(status=status, executor=executor)
         if executor:
@@ -47,7 +57,7 @@ class TasksShowView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = self.get_queryset()
-        context['form'] = TaskSearchForm()
+        context['form'] = TaskSearchForm(initial=self.request.GET)
         context['query'] = self.request
         return context
 
@@ -71,4 +81,13 @@ class TaskTemplateDelete(TemplateView):
         context = super().get_context_data(**kwargs)
         context['id'] = kwargs.get('pk')
         context['name'] = Task.objects.get(id=kwargs.get('pk')).name
+        return context
+    
+
+class TaskShowTemplateView(TemplateView):
+    template_name = 'tasks/task_show.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task'] = Task.objects.get(id=kwargs.get('pk'))
         return context
