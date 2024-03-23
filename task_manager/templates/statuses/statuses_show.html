@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-
-{{ xxx }}
 
 <div class="container wrapper flex-grow-1">
   {% if messages %}
@@ -45,7 +42,7 @@
       <td>
         <a href="{% url 'statuses:status_update' status.id %}">Изменить</a>
         <br>
-        {% if status.statuses.count == 0 %}
+        {% if status.tasks_status.count == 0 %}
           <a href="{% url 'statuses:status_delete' status.id %}">Удалить</a>
         {% else %}
           <a href="{% url 'statuses:status_delete_error' status.id %}">Удалить</a>

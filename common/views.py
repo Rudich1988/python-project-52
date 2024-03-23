@@ -8,11 +8,14 @@ from django.contrib import messages
 
 class ModificationUserMixin(LoginRequiredMixin):   
     def dispatch(self, request, *args, **kwargs):
-        dispatch = super().dispatch(request, *args, **kwargs)
+        #dispatch = super().dispatch(request, *args, **kwargs)
         user = request.user
         if user.is_authenticated:
-            if user.id == kwargs.get('pk'):
-                return dispatch
+            if user.id == kwargs.get('pk') and (len(list(user.tasks_author.all())) == 0 and len(list(user.tasks_executor.all())) == 0):
+                return super().dispatch(request, *args, **kwargs)#dispatch
+            elif user.id == kwargs.get('pk') and (len(list(user.tasks_author.all())) != 0 or len(list(user.tasks_executor.all())) != 0):
+                messages.error(request, 'Невозможно удалить пользователя, потому что он используется')
+                return redirect('users:users_show')
             else:
                 messages.error(request, 'У вас нет прав для изменения другого пользователя.')
                 return redirect('users:users_show')
@@ -24,7 +27,7 @@ class ModificationUserMixin(LoginRequiredMixin):
 class StatusDeleteMixin(LoginRequiredMixin):
     def dispatch(self, request, *args, **kwargs):
         dispatch = super().dispatch(request, *args, **kwargs)
-        if len(list(self.object.statuses.all())) == 0:
+        if len(list(self.object.tasks_status.all())) == 0:
             return dispatch
         messages.error(request, 'Невозможно удалить статус, потому что он используется')
         return redirect('statuses:statuses_show')

@@ -75,7 +75,7 @@ class TaskDeleteView(TaskDeleteMixin, SuccessMessageMixin, DeleteView):
 
 
 class TaskTemplateDelete(TemplateView):
-    template_name = 'tasks/xxx.html'
+    template_name = 'tasks/task_delete_template.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

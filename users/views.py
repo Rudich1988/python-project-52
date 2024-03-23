@@ -1,7 +1,12 @@
+from django.http import HttpRequest, HttpResponse
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from users.models import CustomUser
 from users.forms import UserRegistrationForm
@@ -32,9 +37,14 @@ class UserDeleteView(ModificationUserMixin, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('users:users_show')
     success_message = 'Пользователь успешно удален'
 
+
+class UserDeleteTemplateView(TemplateView):
+    template_name = 'users/user_delete_template.html'
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user'] = kwargs.get('object')
+        context['id'] = kwargs.get('pk')
         return context
 
 

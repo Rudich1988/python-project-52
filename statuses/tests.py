@@ -8,6 +8,8 @@ from statuses.models import Status
 from users.models import CustomUser
 
 
+#тесты
+
 class StatusShowTestCase(TestCase):
     fixtures = ['statuses.json', 'users.json']
 

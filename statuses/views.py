@@ -32,11 +32,12 @@ class StatusesShowView(LoginRequiredMixin, ListView):
         return context
     
 class StatusDeleteErrorTemplateView(TemplateView):
-    template_name = 'statuses/xxx.html'
+    template_name = 'statuses/status_delete_template.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['id'] = kwargs.get('pk')
+        context['name'] = Status.objects.get(id=kwargs.get('pk'))
         return context
     
 
@@ -49,7 +50,7 @@ class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def dispatch(self, request, *args, **kwargs):
         dispatch = super().dispatch(request, *args, **kwargs)
         try:
-            if len(Status.objects.get(id=kwargs.get('pk')).statuses.all()) > 0:
+            if len(Status.objects.get(id=kwargs.get('pk')).tasks_status.all()) > 0:
                 messages.error(request, 'Невозможно удалить статус, потому что он используется')
                 return redirect('statuses:statuses_show')
             else:

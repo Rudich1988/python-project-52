@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="container wrapper flex-grow-1">
   {% if messages %}
     {% for message in messages %}
@@ -32,16 +33,23 @@
       </tr>
     </thead>
     <tbody>
-      {% for user in users %}
+      {% for person in users %}
       <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.first_name }} {{ user.last_name }}</td>
-        <td>{{ user.created_at }}</td>
+        <td>{{ person.id }}</td>
+        <td>{{ person.username }}</td>
+        <td>{{ person.first_name }} {{ person.last_name }}</td>
+        <td>{{ person.created_at }}</td>
         <td>
-          <a href="{% url 'users:user_update' user.id %}">Изменить</a>
+          <a href="{% url 'users:user_update' person.id %}">Изменить</a>
           <br>
-          <a href="{% url 'users:user_delete' user.id %}">Удалить</a>
+          {% if person.tasks_author.count == 0 and person.tasks_executor.count == 0 and person.id == user.id or user.is_anonymous %}
+          <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
+          {% endif %}
+          {% if person.id != user.id and user.is_anonymous %}
+            <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
+          {% else %}
+            <a href="{% url 'users:user_delete_template' person.id %}">Удалить</a>
+          {% endif %}
         </td>
       </tr>
       {% endfor %}

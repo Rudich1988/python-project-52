@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 from users.models import CustomUser
-
-#тесты
+from tasks.models import Task
+from statuses.models import Status
 
 
 class UsersShowTestCase(TestCase):
@@ -89,7 +89,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json']
+    fixtures = ['users.json', 'statuses.json']
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='test1')
@@ -107,8 +107,18 @@ class D(TestCase):
     def test_user_delete_error(self):
         self.client.force_login(self.user)
         another_user = CustomUser.objects.first()
-        path = self.path = reverse('users:user_delete', kwargs={'pk': another_user.id})
+        path = reverse('users:user_delete', kwargs={'pk': another_user.id})
         response = self.client.post(path)
         self.assertTrue(CustomUser.objects.filter(username=self.user.username).exists())
         self.assertRedirects(response, '/users/')
         self.assertRaisesMessage(response, 'У вас нет прав для изменения другого пользователя.')
+    '''
+    def test_user_delete_error_with_task(self):
+        self.client.force_login(self.user)
+        new_task = Task.objects.create(author=self.user, name='new', status=Status.objects.first())
+        path = reverse('users:user_delete_template', kwargs={'pk': self.user.id})
+        response = self.client.post(path)
+        self.assertRedirects(response, f'/users/{self.user.id}/delete')
+    '''
+
+
