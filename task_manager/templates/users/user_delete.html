@@ -5,9 +5,14 @@
     <h1 class="my-4">
       Удаление пользователя
     </h1>
-    <p>Вы уверены, что хотите удалить {{ user.first_name }} {{ user.last_name }}?</p>
+    <p>Вы уверены, что хотите удалить {{ object.first_name }} {{ object.last_name }}?</p>
     <form method="post">
       {% csrf_token %}
-      <input class="btn btn-danger" type="submit" value="Да, удалить">
+      {% if user.tasks_author.count == 0 and user.tasks_executor.count == 0 %}
+        <input class="btn btn-danger" type="submit" value="Да, удалить">
+      {% else %}
+        <a class="btn btn-danger mb-3" href="{% url 'users:users_show' %}">Да, удалить</a>
+      {% endif %}
+        
 </form>
 {% endblock %}
