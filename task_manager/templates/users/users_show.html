@@ -43,11 +43,6 @@
           <a href="{% url 'users:user_update' person.id %}">Изменить</a>
           <br>
           <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
-          <!--{% if person.tasks_author.count == 0 and person.tasks_executor.count == 0 and person.id == user.id or user.is_anonymous %}
-            <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
-          {% else %}
-            <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
-          {% endif %}-->
         </td>
       </tr>
       {% endfor %}

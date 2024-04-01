@@ -5,6 +5,7 @@
 {% block content%}
 <div class="container wrapper flex-grow-1">
   {% if messages %}
+  {{ messages.count }}
     {% for message in messages %}
       {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
         <div class="alert alert-info alert-dismissible fade show" role="alert">

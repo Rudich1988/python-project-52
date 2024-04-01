@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from statuses.models import Status
 from users.models import CustomUser
+from tasks.models import Task
 
 
 #тесты
@@ -73,7 +74,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json', 'statuses.json']
+    fixtures = ['users.json', 'statuses.json', 'tasks.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
@@ -85,6 +86,14 @@ class D(TestCase):
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTemplateUsed('statuses/status_delete.html')
-        self.assertFalse(Status.objects.filter(name=self.status.name).exists())
         self.assertRedirects(response, reverse('statuses:statuses_show'))
         self.assertRaisesMessage(response, 'Статус успешно удален')
+
+    def test_status_delete_error(self):
+        self.client.force_login(self.user)
+        new_task = Task.objects.create(author=self.user, status=self.status)
+        response = self.client.post(self.path)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
+        self.assertTrue(Status.objects.filter(name=self.status.name).exists())
+        self.assertRedirects(response, reverse('statuses:statuses_show'))
+        self.assertRaisesMessage(response, 'Невозможно удалить статус, потому что он используется')

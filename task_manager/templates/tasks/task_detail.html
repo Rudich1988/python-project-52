@@ -41,11 +41,7 @@
           <div class="col">
             <a href="">Изменить</a>
             <br>
-            {% if task.author == user %}
-              <a href="{% url 'tasks:task_delete_template' task.id %}">Удалить</a>
-            {% else %}
               <a href="{% url 'tasks:task_delete' task.id %}">Удалить</a>
-            {% endif %}
           </div>
         </div>
       </div>

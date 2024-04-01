@@ -112,13 +112,13 @@ class D(TestCase):
         self.assertTrue(CustomUser.objects.filter(username=self.user.username).exists())
         self.assertRedirects(response, '/users/')
         self.assertRaisesMessage(response, 'У вас нет прав для изменения другого пользователя.')
-    '''
+    
     def test_user_delete_error_with_task(self):
         self.client.force_login(self.user)
         new_task = Task.objects.create(author=self.user, name='new', status=Status.objects.first())
-        path = reverse('users:user_delete_template', kwargs={'pk': self.user.id})
+        path = reverse('users:user_delete', kwargs={'pk': self.user.id})
         response = self.client.post(path)
-        self.assertRedirects(response, f'/users/{self.user.id}/delete')
-    '''
-
-
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
+        self.assertTrue(CustomUser.objects.filter(username=self.user.username).exists())
+        self.assertRedirects(response, '/users/')
+        self.assertRaisesMessage(response, 'Невозможно удалить пользователя, потому что он используется')

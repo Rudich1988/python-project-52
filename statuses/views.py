@@ -1,15 +1,12 @@
 from django.http.request import HttpRequest as HttpRequest
-from django.http.response import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.views.generic import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from statuses.forms import StatusCreateForm
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from common.views import StatusDeleteMixin
 
 from statuses.models import Status
 
@@ -30,16 +27,7 @@ class StatusesShowView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['statuses'] = Status.objects.all()
         return context
-    
-class StatusDeleteErrorTemplateView(TemplateView):
-    template_name = 'statuses/status_delete_template.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['id'] = kwargs.get('pk')
-        context['name'] = Status.objects.get(id=kwargs.get('pk'))
-        return context
-    
+  
 
 class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Status
@@ -47,21 +35,14 @@ class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('statuses:statuses_show')
     success_message = 'Статус успешно удален'
     
-    def dispatch(self, request, *args, **kwargs):
-        dispatch = super().dispatch(request, *args, **kwargs)
-        try:
-            if len(Status.objects.get(id=kwargs.get('pk')).tasks_status.all()) > 0:
-                messages.error(request, 'Невозможно удалить статус, потому что он используется')
-                return redirect('statuses:statuses_show')
-            else:
-                return dispatch
-        except Exception:
-            return dispatch
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['name'] = kwargs.get('object').name
-        return context
+    def post(self, request, *args, **kwargs):
+        status = Status.objects.get(id=kwargs.get('pk'))
+        if status.tasks_status.all().exists():
+            messages.error(request, 'Невозможно удалить статус, потому что он используется')
+            return redirect('statuses:statuses_show')
+        status.delete()
+        messages.success(request, self.success_message)
+        return redirect(self.success_url)
     
 
 class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -70,4 +51,3 @@ class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'statuses/status_update.html'
     success_url = reverse_lazy('statuses:statuses_show')
     success_message = 'Статус успешно изменен'
-
