@@ -32,9 +32,13 @@
         <div class="row p-1">
           <div class="col">
             <h6>Метки:</h6>
-            <ul>    
-              <li>пока метки не сделаны</li>                
-            </ul>
+            {% if task.labels %}
+              <ul>
+                {% for label in labels %}    
+                  <li>{{ label.name }}</li>                
+                {% endfor %}
+              </ul>
+            {% endif %}
           </div>
         </div>
         <div class="row p-1">

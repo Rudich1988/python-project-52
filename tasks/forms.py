@@ -4,6 +4,7 @@ from django import forms
 from tasks.models import Task
 from statuses.models import Status
 from users.models import CustomUser
+from labels.models import Label
 
 
 class TaskCreateForm(forms.ModelForm):
@@ -12,11 +13,12 @@ class TaskCreateForm(forms.ModelForm):
     status = forms.ModelChoiceField(queryset=Status.objects.all())
     executor = forms.ModelChoiceField(queryset=CustomUser.objects.all(), required=False)
     author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
+    labels = forms.ModelMultipleChoiceField(queryset=Label.objects.all(), required=False)
 
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor']
-        labels = {'name': 'Имя', 'description': 'Описание', 'status': 'Статус', 'executor': 'Испонитель'}
+        fields = ['name', 'description', 'status', 'executor', 'labels']
+        labels = {'name': 'Имя', 'description': 'Описание', 'status': 'Статус', 'executor': 'Испонитель', 'label_set': 'Метки'}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,6 +26,7 @@ class TaskCreateForm(forms.ModelForm):
         self.fields['description'].widget.attrs.update({'name': 'description', 'cols': 40, 'class': 'form-control', 'placeholder': 'Описание', 'id': 'id_description'})
         self.fields['status'].widget.attrs.update({'name': 'status', 'class': 'form-select', 'required id': 'id_status'})
         self.fields['executor'].widget.attrs.update({'name': 'executor', 'class': 'form-select', 'id': 'id_executor'})
+        self.labels['labels'].widget.attrs.update({'name': 'labels', 'class': 'form-select', 'id': 'id_labels'})
 
 
 class TaskSearchForm(forms.Form):

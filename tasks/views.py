@@ -9,6 +9,7 @@ from django.views.generic import TemplateView
 
 from statuses.models import Status
 from tasks.models import Task
+from labels.models import Label
 from users.models import CustomUser
 from tasks.forms import TaskCreateForm, TaskSearchForm
 from common.views import TaskDeleteMixin
@@ -17,15 +18,18 @@ from common.views import TaskDeleteMixin
 class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Task
     form = TaskCreateForm
-    fields = ['name', 'description', 'status', 'executor']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
     template_name = 'tasks/task_create.html'
     success_url = reverse_lazy('tasks:tasks_show')
     success_message = 'Задача успешно создана'
 
     def form_valid(self, form):
-       instance = form.save(commit=False)
-       instance.author = self.request.user
-       return super(TaskCreateView, self).form_valid(form)
+        instance = form.save(commit=False)
+       #if form.cleaned_data['label_set']:
+           #labels = form.cleaned_data['label_set']
+           #instance.label_set.set(labels)
+        instance.author = self.request.user
+        return super(TaskCreateView, self).form_valid(form)
 
 
 class TasksShowView(LoginRequiredMixin, ListView):
@@ -65,6 +69,7 @@ class TaskDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['task'] = Task.objects.get(id=kwargs.get('pk'))
+        context['labels'] = Task.objects.get(id=kwargs.get('pk')).labels.all()
         return context
 
 
@@ -80,5 +85,5 @@ class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'tasks/task_update.html'
     success_message = 'Задача успешно изменена'
     success_url = reverse_lazy('tasks:tasks_show')
-    fields = ['name', 'description', 'status', 'executor']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
     
