@@ -32,14 +32,16 @@ class TaskCreateForm(forms.ModelForm):
 class TaskSearchForm(forms.Form):
     status = forms.ModelChoiceField(label='Статус', queryset=Status.objects.all(), required=False)
     executor = forms.ModelChoiceField(label='Исполнитель', queryset=CustomUser.objects.all(), required=False)
-    user_tasks = forms.BooleanField(label='Только свои задачи', required=False)
+    labels = forms.ModelChoiceField(label='Метка', queryset=Label.objects.all(), required=False)
+    author = forms.BooleanField(label='Только свои задачи', required=False)
 
     class Meta:
         model = Task
-        field = ['status', 'executor']
+        field = ['status', 'executor', 'labels', 'author']
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['status'].widget.attrs.update({'class': 'form-select', 'name': 'status', 'id': 'id_status'})
         self.fields['executor'].widget.attrs.update({'class': 'form-select', 'name': 'executor', 'id': 'id_executor'})
+        self.fields['labels'].widget.attrs.update({'class': 'form-select', 'name': 'label', 'id': 'id_label'})
     

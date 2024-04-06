@@ -1,0 +1,1 @@
+[{"model": "labels.label", "pk": 6, "fields": {"name": "баг", "created_at": "2024-04-06T10:39:10.820Z"}}, {"model": "labels.label", "pk": 7, "fields": {"name": "сделать вовремя", "created_at": "2024-04-06T10:39:24.368Z"}}, {"model": "labels.label", "pk": 8, "fields": {"name": "моя третья метка", "created_at": "2024-04-06T10:39:35.470Z"}}]

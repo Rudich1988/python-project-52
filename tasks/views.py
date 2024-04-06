@@ -13,6 +13,7 @@ from labels.models import Label
 from users.models import CustomUser
 from tasks.forms import TaskCreateForm, TaskSearchForm
 from common.views import TaskDeleteMixin
+from .filters import TaskFilter
 
 
 class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -25,9 +26,6 @@ class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         instance = form.save(commit=False)
-       #if form.cleaned_data['label_set']:
-           #labels = form.cleaned_data['label_set']
-           #instance.label_set.set(labels)
         instance.author = self.request.user
         return super(TaskCreateView, self).form_valid(form)
 
@@ -37,24 +35,10 @@ class TasksShowView(LoginRequiredMixin, ListView):
     template_name = 'tasks/tasks_show.html'
 
     def get_queryset(self):
-        status = self.request.GET.get('status')
-        executor = self.request.GET.get('executor')
-        show_user_tasks = self.request.GET.get('user_tasks')
-        if show_user_tasks:
-            if status and executor:
-                return Task.objects.filter(author=self.request.user, status=status, executor=executor)
-            if executor:
-                return Task.objects.filter(author=self.request.user, executor=executor)
-            if status:
-                return Task.objects.filter(author=self.request.user, status=status)
-            return Task.objects.filter(author=self.request.user)
-        if status and executor:
-            return Task.objects.filter(status=status, executor=executor)
-        if executor:
-            return Task.objects.filter(executor=executor)
-        if status:
-            return Task.objects.filter(status=status)
-        return Task.objects.all()
+        task_author = self.request.GET.get('author')
+        if task_author:
+            return TaskFilter(self.request.GET, queryset=Task.objects.filter(author=self.request.user))
+        return TaskFilter(self.request.GET, queryset=Task.objects.all())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

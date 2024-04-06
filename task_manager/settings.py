@@ -17,7 +17,7 @@ import dj_database_url
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
@@ -26,10 +26,8 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'yzh%1r38^_61h#5z07v(jmf+e77*i-a9^n!eyf6$u5!6m%*ec@'
+
 SECRET_KEY = os.getenv("SECRET_KEY")
-
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -54,6 +52,7 @@ INSTALLED_APPS = [
     'statuses',
     'tasks',
     'labels',
+    'django_filters',
 ]
 
 
@@ -76,7 +75,7 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR , 'templates'],
+        'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,7 +101,7 @@ DATABASES = {
     }
 }
 
-if DEBUG == False:
+if not DEBUG:
     DATABASES['default'] = dj_database_url.config()
 
 # Password validation
@@ -149,7 +148,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#i18n
+# i18n
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
@@ -163,9 +162,6 @@ LOGIN_URL = 'login'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -18,6 +18,7 @@ from django.urls import include, path
 from task_manager import views
 from task_manager import settings
 
+
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('login/', views.UserLoginView.as_view(), name='login'),

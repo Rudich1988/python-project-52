@@ -1,5 +1,5 @@
 from http import HTTPStatus
-
+#
 from django.test import TestCase
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -20,7 +20,7 @@ class TaskShowTestCase(TestCase):
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, 'tasks/tasks_show.html')
-        self.assertEqual(list(response.context_data['tasks']), list(tasks))
+        self.assertEqual(list(response.context_data['tasks'].qs), list(tasks))
 
 
 class TaskDetailTestCase(TestCase):

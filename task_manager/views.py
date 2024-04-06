@@ -29,7 +29,7 @@ class UserLoginView(LoginView):
             password = request.POST['password']
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)               
+                login(request, user)
                 messages.success(request, 'Вы залогинены')
                 return redirect('index')
         return render(request, self.template_name, context={'form': form})

@@ -47,7 +47,7 @@
     </thead>
     <tbody>
         {% if tasks %}
-          {% for task in tasks %}
+          {% for task in tasks.qs %}
             <tr>
               <td>
                 {{ task.id }}
