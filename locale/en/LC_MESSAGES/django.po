@@ -73,44 +73,44 @@ msgstr "Hello from Hexlet!"
 
 #: task_manager/templates/index.html:27
 msgid "Практические курсы по программированию"
-msgstr ""
+msgstr "Practical programming courses"
 
 #: task_manager/templates/index.html:29
 msgid "Узнать больше"
-msgstr ""
+msgstr "Learn more"
 
 #: task_manager/templates/labels/label_create.html:10
 #: task_manager/templates/labels/labels_show.html:26
 msgid "Создать метку"
-msgstr ""
+msgstr "Create label"
 
 #: task_manager/templates/labels/label_create.html:15
 #: task_manager/templates/statuses/status_create.html:15
 #: task_manager/templates/tasks/task_create.html:15
 msgid "Создать"
-msgstr ""
+msgstr "Create"
 
 #: task_manager/templates/labels/label_delete.html:8
 msgid "Удаление метки"
-msgstr ""
+msgstr "Delete label"
 
 #: task_manager/templates/labels/label_delete.html:10
 #: task_manager/templates/statuses/status_delete.html:10
 #: task_manager/templates/tasks/task_delete.html:10
 #: task_manager/templates/users/user_delete.html:10
 msgid "Вы уверены, что хотите удалить"
-msgstr ""
+msgstr "Are you sure you want to delete"
 
 #: task_manager/templates/labels/label_delete.html:13
 #: task_manager/templates/statuses/status_delete.html:13
 #: task_manager/templates/tasks/task_delete.html:13
 #: task_manager/templates/users/user_delete.html:13
 msgid "Да, удалить"
-msgstr ""
+msgstr "Yes, delete"
 
 #: task_manager/templates/labels/label_update.html:10
 msgid "Изменение метки"
-msgstr ""
+msgstr "Change label"
 
 #: task_manager/templates/labels/label_update.html:15
 #: task_manager/templates/labels/labels_show.html:44
@@ -122,7 +122,7 @@ msgstr ""
 #: task_manager/templates/users/user_update.html:15
 #: task_manager/templates/users/users_show.html:45
 msgid "Изменить"
-msgstr ""
+msgstr "Change"
 
 #: task_manager/templates/labels/labels_show.html:32
 #: task_manager/templates/statuses/statuses_show.html:32
@@ -130,7 +130,7 @@ msgstr ""
 #: task_manager/templates/tasks/tasks_show.html:46
 #: task_manager/templates/users/users_show.html:33
 msgid "Дата создания"
-msgstr ""
+msgstr "Creating date"
 
 #: task_manager/templates/labels/labels_show.html:46
 #: task_manager/templates/statuses/statuses_show.html:46
@@ -138,124 +138,124 @@ msgstr ""
 #: task_manager/templates/tasks/tasks_show.html:79
 #: task_manager/templates/users/users_show.html:47
 msgid "Удалить"
-msgstr ""
+msgstr "Delete"
 
 #: task_manager/templates/login.html:31
 msgid "Войти"
-msgstr ""
+msgstr "Log in"
 
 #: task_manager/templates/statuses/status_create.html:10
 #: task_manager/templates/statuses/statuses_show.html:26
 msgid "Создать статус"
-msgstr ""
+msgstr "Create status"
 
 #: task_manager/templates/statuses/status_delete.html:8
 #: task_manager/templates/tasks/task_delete.html:8
 msgid "Удаление статуса"
-msgstr ""
+msgstr "Delete status"
 
 #: task_manager/templates/statuses/status_update.html:10
 msgid "Изменение статуса"
-msgstr ""
+msgstr "Change status"
 
 #: task_manager/templates/tasks/task_create.html:10
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Создать задачу"
-msgstr ""
+msgstr "Create task"
 
 #: task_manager/templates/tasks/task_detail.html:8
 msgid "Просмотр задачи"
-msgstr ""
+msgstr "Viewing task"
 
 #: task_manager/templates/tasks/task_detail.html:19
 #: task_manager/templates/tasks/tasks_show.html:44
 msgid "Автор"
-msgstr ""
+msgstr "Author"
 
 #: task_manager/templates/tasks/task_detail.html:23
 #: task_manager/templates/tasks/tasks_show.html:45 tasks/forms.py:35
 msgid "Исполнитель"
-msgstr ""
+msgstr "Executor"
 
 #: task_manager/templates/tasks/task_detail.html:27
 #: task_manager/templates/tasks/tasks_show.html:43 tasks/forms.py:22
 #: tasks/forms.py:34
 msgid "Статус"
-msgstr ""
+msgstr "Status"
 
 #: task_manager/templates/tasks/task_update.html:10
 msgid "Изменение задачи"
-msgstr ""
+msgstr "Change task"
 
 #: task_manager/templates/tasks/tasks_show.html:34
 msgid "Показать"
-msgstr ""
+msgstr "Show"
 
 #: task_manager/templates/users/registration.html:15
 msgid "Зарегистрировать"
-msgstr ""
+msgstr "Registrate"
 
 #: task_manager/templates/users/user_delete.html:8
 msgid "Удаление пользователя"
-msgstr ""
+msgstr "Delete user"
 
 #: task_manager/templates/users/user_update.html:10
 msgid "Изменение пользователя"
-msgstr ""
+msgstr "Update user"
 
 #: task_manager/templates/users/users_show.html:31 users/forms.py:13
 #: users/forms.py:30 users/forms.py:38 users/forms.py:56 users/forms.py:71
 msgid "Имя пользователя"
-msgstr ""
+msgstr "Username"
 
 #: task_manager/templates/users/users_show.html:32
 msgid "Полное имя"
-msgstr ""
+msgstr "Full name"
 
 #: tasks/forms.py:22 tasks/forms.py:27
 msgid "Описание"
-msgstr ""
+msgstr "Description"
 
 #: tasks/forms.py:22
 msgid "Испонитель"
-msgstr ""
+msgstr "Executor"
 
 #: tasks/forms.py:36
 msgid "Метка"
-msgstr ""
+msgstr "Label"
 
 #: tasks/forms.py:37
 msgid "Только свои задачи"
-msgstr ""
+msgstr "Only my tasks"
 
 #: users/forms.py:12 users/forms.py:29 users/forms.py:37 users/forms.py:55
 msgid "Фамилия"
-msgstr ""
+msgstr "Last name"
 
 #: users/forms.py:14 users/forms.py:39
 msgid ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
-msgstr ""
+msgstr "Required field. No more than 150 characters. Only letters, numbers, and @/ characters./"
 
 #: users/forms.py:15 users/forms.py:31 users/forms.py:40 users/forms.py:57
 #: users/forms.py:72
 msgid "Пароль"
-msgstr ""
+msgstr "Password"
 
 #: users/forms.py:16 users/forms.py:41
 msgid "Ваш пароль должен содержать как минимум 3 символа."
-msgstr ""
+msgstr "Your password must contain at least 3 characters."
 
 #: users/forms.py:17 users/forms.py:32 users/forms.py:43 users/forms.py:58
 msgid "Подтверждение пароля"
-msgstr ""
+msgstr "Password confirmation"
 
 #: users/forms.py:18 users/forms.py:44
 msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
-msgstr ""
+msgstr "To confirm, please enter the password again."
 
 #: users/forms.py:20 users/forms.py:46
 msgid ""
 "Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
-msgstr ""
+msgstr "The entered password is too short. It must contain at least 3 characters."
