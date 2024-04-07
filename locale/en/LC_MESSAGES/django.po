@@ -24,39 +24,39 @@ msgstr ""
 #: tasks/forms.py:26 users/forms.py:11 users/forms.py:28 users/forms.py:36
 #: users/forms.py:54
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: task_manager/templates/base.html:10
 msgid "Менеджер задач Hexlet"
-msgstr ""
+msgstr "Task maneger Hexlet"
 
 #: task_manager/templates/base.html:16
 msgid "Менеджер задач"
-msgstr ""
+msgstr "Task maneger"
 
 #: task_manager/templates/base.html:23
 #: task_manager/templates/users/users_show.html:25
 msgid "Пользователи"
-msgstr ""
+msgstr "Users"
 
 #: task_manager/templates/base.html:27
 #: task_manager/templates/statuses/statuses_show.html:24
 msgid "Статусы"
-msgstr ""
+msgstr "Statuses"
 
 #: task_manager/templates/base.html:30
 #: task_manager/templates/labels/labels_show.html:24 tasks/forms.py:22
 msgid "Метки"
-msgstr ""
+msgstr "Labels"
 
 #: task_manager/templates/base.html:33
 #: task_manager/templates/tasks/tasks_show.html:27
 msgid "Задачи"
-msgstr ""
+msgstr "Tasks"
 
 #: task_manager/templates/base.html:36
 msgid "Выход"
-msgstr ""
+msgstr "Log out"
 
 #: task_manager/templates/base.html:41 task_manager/templates/login.html:26
 msgid "Вход"
@@ -65,11 +65,11 @@ msgstr "Log in"
 #: task_manager/templates/base.html:44
 #: task_manager/templates/users/registration.html:10
 msgid "Регистрация"
-msgstr ""
+msgstr "Sign in"
 
 #: task_manager/templates/index.html:26
 msgid "Привет от Хекслета!"
-msgstr ""
+msgstr "Hello from Hexlet!"
 
 #: task_manager/templates/index.html:27
 msgid "Практические курсы по программированию"
