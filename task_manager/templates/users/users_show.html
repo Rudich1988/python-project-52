@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
 <div class="container wrapper flex-grow-1">
@@ -20,15 +22,15 @@
     {% endfor %}
   {% endif %}
   <h1 class="my-4">
-    Пользователи
+    {% trans 'Пользователи' %}
   </h1>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Имя пользователя</th>
-        <th>Полное имя</th>
-        <th>Дата создания</th>
+        <th>{% trans 'Имя пользователя' %}</th>
+        <th>{% trans 'Полное имя' %}</th>
+        <th>{% trans 'Дата создания' %}</th>
         <th></th>
       </tr>
     </thead>
@@ -40,9 +42,9 @@
         <td>{{ person.first_name }} {{ person.last_name }}</td>
         <td>{{ person.created_at }}</td>
         <td>
-          <a href="{% url 'users:user_update' person.id %}">Изменить</a>
+          <a href="{% url 'users:user_update' person.id %}">{% trans 'Изменить' %}</a>
           <br>
-          <a href="{% url 'users:user_delete' person.id %}">Удалить</a>
+          <a href="{% url 'users:user_delete' person.id %}">{% trans 'Удалить' %}</a>
         </td>
       </tr>
       {% endfor %}

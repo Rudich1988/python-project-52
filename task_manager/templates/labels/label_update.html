@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% load django_bootstrap5 %}
 
 {% block content%}
 <div class="container wrapper flex-grow-1">
   <h1 class="my-4">
-    Изменение метки
+    {% trans 'Изменение метки' %}
   </h1>
   <form action="{% url 'labels:label_update' object.id %}" method="post" class="form">
     {% csrf_token %}
       {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Изменить">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Изменить' %}">
   </form>
 </div>
 {% endblock %}

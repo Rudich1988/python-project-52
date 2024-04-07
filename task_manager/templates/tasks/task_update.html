@@ -2,15 +2,17 @@
 
 {% load django_bootstrap5 %}
 
+{% load i18n %}
+
 {% block content%}
 <div class="container wrapper flex-grow-1">
   <h1 class="my-4">
-    Изменение задачи
+    {% trans 'Изменение задачи' %}
   </h1>
   <form action="{% url 'tasks:task_update' object.id %}" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Изменить">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Изменить' %}">
   </form>
 </div>
 {% endblock %}

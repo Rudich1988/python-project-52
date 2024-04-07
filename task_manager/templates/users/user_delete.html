@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
   <div class="container wrapper flex-grow-1">
     <h1 class="my-4">
-      Удаление пользователя
+      {% trans 'Удаление пользователя' %}
     </h1>
-    <p>Вы уверены, что хотите удалить {{ object.first_name }} {{ object.last_name }}?</p>
+    <p>{% trans 'Вы уверены, что хотите удалить' %} {{ object.first_name }} {{ object.last_name }}?</p>
     <form method="post">
       {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="Да, удалить">
+        <input class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
 </form>
 {% endblock %}

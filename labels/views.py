@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.http.request import HttpRequest as HttpRequest
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy

@@ -2,6 +2,8 @@
 
 {% load django_bootstrap5 %}
 
+{% load i18n %}
+
 {% block content%}
 <div class="container wrapper flex-grow-1">
   {% if messages %}
@@ -21,10 +23,10 @@
     {% endfor %}
   {% endif %}
   <h1 class="my-4">       
-    Вход  
+    {% trans 'Вход' %} 
   </h1>
   <form action="{% url 'login' %}" method="post">
     {% csrf_token %}    
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Войти">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Войти' %}">
 {% endblock %}

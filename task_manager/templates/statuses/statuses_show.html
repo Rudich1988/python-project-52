@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 <div class="container wrapper flex-grow-1">
   {% if messages %}
@@ -19,15 +21,15 @@
     {% endfor %}
   {% endif %}
 <h1 class="my-4">       
-  Статусы   
+  {% trans 'Статусы' %}   
 </h1>
-<a class="btn btn-primary mb-3" href="{% url 'statuses:status_create' %}">Создать статус</a>
+<a class="btn btn-primary mb-3" href="{% url 'statuses:status_create' %}">{% trans 'Создать статус' %}</a>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Имя</th>
-      <th>Дата создания</th>
+      <th>{% trans 'Имя' %}</th>
+      <th>{% trans 'Дата создания' %}</th>
       <th></th>
     </tr>
   </thead>
@@ -39,9 +41,9 @@
       <td>{{ status.name }}</td>
       <td>{{ status.created_at }}</td>
       <td>
-        <a href="{% url 'statuses:status_update' status.id %}">Изменить</a>
+        <a href="{% url 'statuses:status_update' status.id %}">{% trans 'Изменить' %}</a>
         <br>
-        <a href="{% url 'statuses:status_delete' status.id %}">Удалить</a>
+        <a href="{% url 'statuses:status_delete' status.id %}">{% trans 'Удалить' %}</a>
       </td>
     </tr>
     {% endfor %}

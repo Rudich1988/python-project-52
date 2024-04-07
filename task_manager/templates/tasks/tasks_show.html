@@ -2,6 +2,8 @@
 
 {% load django_bootstrap5 %}
 
+{% load i18n %}
+
 {% block content %}
 
 <div class="container wrapper flex-grow-1">
@@ -22,14 +24,14 @@
     {% endfor %}
   {% endif %}
   <h1 class="my-4">    
-    Задачи
+    {% trans 'Задачи' %}
   </h1>
-  <a class="btn btn-primary mb-3" href="{% url 'tasks:task_create' %}" role="button">Создать задачу</a> 
+  <a class="btn btn-primary mb-3" href="{% url 'tasks:task_create' %}" role="button">{% trans 'Создать задачу' %}</a> 
   <div class="card mb-3">
     <div class="card-body bg-light">
       <form class="form-inline center" action="{% url 'tasks:tasks_show' %}" method="get">
         {% bootstrap_form form %}
-        <input class="btn btn-primary" type="submit" value="Показать">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Показать' %}">
       </form>
     </div>
   </div>
@@ -37,11 +39,11 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Имя</th>
-        <th>Статус</th>
-        <th>Автор</th>
-        <th>Исполнитель</th>
-        <th>Дата создания</th>
+        <th>{% trans 'Имя' %}</th>
+        <th>{% trans 'Статус' %}</th>
+        <th>{% trans 'Автор' %}</th>
+        <th>{% trans 'Исполнитель' %}</th>
+        <th>{% trans 'Дата создания' %}</th>
         <th></th>
       </tr>
     </thead>
@@ -72,9 +74,9 @@
                 {{ task.created_at }}
               </td>
               <td>
-                <a href="{% url 'tasks:task_update' task.id %}">Изменить</a>
+                <a href="{% url 'tasks:task_update' task.id %}">{% trans 'Изменить' %}</a>
               <br>
-                <a href="{% url 'tasks:task_delete' task.id %}">Удалить</a>
+                <a href="{% url 'tasks:task_delete' task.id %}">{% trans 'Удалить' %}</a>
               </td>
             </tr>
           {% endfor %}
