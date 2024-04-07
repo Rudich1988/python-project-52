@@ -59,8 +59,8 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput())
-    password = forms.CharField(widget=forms.PasswordInput())
+    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput())
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput())
 
     class Meta:
         model = CustomUser
