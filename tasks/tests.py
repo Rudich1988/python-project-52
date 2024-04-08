@@ -1,5 +1,4 @@
 from http import HTTPStatus
-#
 from django.test import TestCase
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -95,7 +94,7 @@ class D(TestCase):
         self.task = Task.objects.filter(author=self.user)[0]
         self.path = reverse('tasks:task_delete', kwargs={'pk': self.task.id})
 
-    def test_status_delete_success(self):
+    def test_task_delete_success(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
@@ -104,7 +103,7 @@ class D(TestCase):
         self.assertRaisesMessage(response, 'Задача успешно удалена')
         self.assertFalse(Task.objects.filter(id=self.task.id).exists())
 
-    def test_status_delete_error(self):
+    def test_task_delete_error(self):
         another_user = CustomUser.objects.get(username='test1')
         self.client.force_login(another_user)
         response = self.client.post(self.path)

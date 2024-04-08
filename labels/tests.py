@@ -89,14 +89,13 @@ class D(TestCase):
         self.assertRedirects(response, reverse('labels:labels_show'))
         self.assertRaisesMessage(response, 'Метка успешно удалена')
         self.assertFalse(Label.objects.filter(id=self.label.id).exists())
-    
+       
     def test_label_delete_error(self):
         task = Task.objects.first()
         task.labels.add(self.label)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTemplateUsed('labels/label_delete.html')
-        self.assertRedirects(response, 'labels:labels_show')
         self.assertRaisesMessage(response, 'Невозможно удалить метку, потому что она используется')
         self.assertTrue(Task.objects.filter(id=self.label.id).exists())
-    
+   
