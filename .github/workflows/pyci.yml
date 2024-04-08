@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
+          pip install Django
           make install
       - name: Run test
         run: |
