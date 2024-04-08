@@ -23,6 +23,7 @@ jobs:
           pip install poetry
           pip install Django
           pip install python-dotenv
+          pip install dj-database-url
           make install
       - name: Run test
         run: |
