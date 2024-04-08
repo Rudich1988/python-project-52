@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from task_manager import views
-from task_manager import settings
 
 
 urlpatterns = [
@@ -29,10 +28,3 @@ urlpatterns = [
     path('tasks/', include('tasks.urls', namespace='tasks')),
     path('labels/', include('labels.urls', namespace='labels')),
 ]
-
-if settings.DEBUG == True:
-    import debug_toolbar
-
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
