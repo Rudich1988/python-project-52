@@ -1,6 +1,6 @@
 asgiref==3.7.2
 dj-database-url==2.1.0
-Django==5.0.2
+Django==5.0.4
 gunicorn==21.2.0
 -e git+ssh://git@github.com/Rudich1988/python-project-52.git@cf1ecea0c6bfb91309b06a285db068f4f2269026#egg=hexlet_code
 packaging==23.2
