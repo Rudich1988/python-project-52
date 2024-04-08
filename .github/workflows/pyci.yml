@@ -22,7 +22,6 @@ jobs:
         run: |
           pip install poetry
           make install
-          poetry shell
       - name: Run test
         run: |
           make test
