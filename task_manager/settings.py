@@ -181,7 +181,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 ROLLBAR = {
-    'access_token': os.getenv("ACCESS_TOKEN"),
+    'access_token': os.getenv("POST_SERVER_ITEM_ACCESS_TOKEN"),
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
