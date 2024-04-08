@@ -21,10 +21,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          pip install Django
-          pip install python-dotenv
-          pip install dj-database-url
           make install
+      - name: Activate venv
+        run: |
+          make shell
       - name: Run test
         run: |
           make test

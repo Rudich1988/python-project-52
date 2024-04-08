@@ -15,3 +15,6 @@ test-coverage:
 
 lint:
 	poetry run flake8
+
+shell:
+	poetry shell
