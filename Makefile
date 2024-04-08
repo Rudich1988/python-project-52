@@ -11,7 +11,7 @@ test:
 	python3 manage.py test
 
 test-coverage:
-	coverage run manage.py test -v2 && coverage report
+	poetry run coverage report
 
 lint:
 	poetry run flake8

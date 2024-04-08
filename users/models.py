@@ -8,3 +8,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.get_full_name()
+
+
+
+#coverage run manage.py test -v2 && coverage report
