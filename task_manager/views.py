@@ -1,7 +1,10 @@
+from typing import Any
+from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect
+from django.template.response import TemplateResponse
 from django.views.generic import TemplateView
 from django.contrib import messages
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
 
 from users.models import CustomUser
@@ -38,3 +41,13 @@ def logoutview(request):
     logout(request)
     messages.info(request, 'Вы разлогинены')
     return redirect('index')
+
+
+class UserLogoutView(LogoutView):
+    template_name = 'index.html'
+
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        messages.info(request, 'Вы разлогинены')
+        return redirect('index')
+

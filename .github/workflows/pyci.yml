@@ -28,5 +28,7 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make test-coverage
-          debug: true
+          run: |
+            poetry run coverage run ./manage.py test
+            poetry run coverage report
+          debug: false
