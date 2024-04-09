@@ -1,7 +1,6 @@
 from http import HTTPStatus
 from django.test import TestCase
 from django.urls import reverse
-from django.urls import reverse_lazy
 
 from statuses.models import Status
 from users.models import CustomUser
@@ -42,7 +41,9 @@ class C(TestCase):
         self.path = reverse('tasks:task_create')
         self.user = CustomUser.objects.first()
         self.status = Status.objects.first()
-        self.data = {'name': 'test_task', 'description': 'test', 'status': self.status.id, 'executor': self.user.id}
+        self.data = {'name': 'test_task', 'description': 'test',
+                     'status': self.status.id,
+                     'executor': self.user.id}
 
     def test_task_create_get(self):
         self.client.force_login(self.user)
@@ -57,7 +58,7 @@ class C(TestCase):
         self.assertRedirects(response, reverse('tasks:tasks_show'))
         self.assertTrue(Task.objects.filter(name=self.data['name']).exists())
         self.assertRaisesMessage(response, 'Задача успешно создана')
-        
+
 
 class U(TestCase):
     fixtures = ['users.json', 'tasks.json', 'statuses.json']
@@ -67,7 +68,8 @@ class U(TestCase):
         self.status = Status.objects.first()
         self.task = Task.objects.first()
         self.path = reverse('tasks:task_update', kwargs={'pk': self.task.id})
-        self.data = {'name': 'try_task_update', 'description': self.task.description,
+        self.data = {'name': 'try_task_update',
+                     'description': self.task.description,
                      'status': self.status.id, 'executor': self.user.id}
 
     def test_task_update_get(self):
@@ -75,7 +77,7 @@ class U(TestCase):
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed('tasks/task_update.html')
-    
+
     def test_task_update_post(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
@@ -110,5 +112,6 @@ class D(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTemplateUsed('tasks/task_delete.html')
         self.assertRedirects(response, reverse('tasks:tasks_show'))
-        self.assertRaisesMessage(response, 'Задачу может удалить только ее автор')
+        self.assertRaisesMessage(response, ('Задачу может удалить '
+                                            'только ее автор'))
         self.assertTrue(Task.objects.filter(id=self.task.id).exists())

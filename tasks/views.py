@@ -1,16 +1,11 @@
-from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
 from django.views.generic import TemplateView
 
-from statuses.models import Status
 from tasks.models import Task
-from labels.models import Label
-from users.models import CustomUser
 from tasks.forms import TaskCreateForm, TaskSearchForm
 from common.views import TaskDeleteMixin
 from .filters import TaskFilter
@@ -45,7 +40,7 @@ class TasksShowView(LoginRequiredMixin, ListView):
         context['tasks'] = self.get_queryset()
         context['form'] = TaskSearchForm(initial=self.request.GET)
         return context
-    
+
 
 class TaskDetailView(TemplateView):
     template_name = 'tasks/task_detail.html'
@@ -62,7 +57,7 @@ class TaskDeleteView(TaskDeleteMixin, SuccessMessageMixin, DeleteView):
     template_name = 'tasks/task_delete.html'
     success_message = 'Задача успешно удалена'
     success_url = reverse_lazy('tasks:tasks_show')
-   
+
 
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
@@ -70,4 +65,3 @@ class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Задача успешно изменена'
     success_url = reverse_lazy('tasks:tasks_show')
     fields = ['name', 'description', 'status', 'executor', 'labels']
-    

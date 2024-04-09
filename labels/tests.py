@@ -2,9 +2,7 @@ from http import HTTPStatus
 
 from django.test import TestCase
 from django.urls import reverse
-from django.urls import reverse_lazy
 
-from statuses.models import Status
 from users.models import CustomUser
 from tasks.models import Task
 from labels.models import Label
@@ -46,7 +44,7 @@ class C(TestCase):
         self.assertTrue(Label.objects.filter(name=self.data['name']).exists())
         self.assertRaisesMessage(response, 'Метка успешно создана')
 
-    
+
 class U(TestCase):
     fixtures = ['users.json', 'labels.json']
 
@@ -62,7 +60,7 @@ class U(TestCase):
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed('labels/label_update.html')
-    
+
     def test_label_update_post(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
@@ -89,13 +87,13 @@ class D(TestCase):
         self.assertRedirects(response, reverse('labels:labels_show'))
         self.assertRaisesMessage(response, 'Метка успешно удалена')
         self.assertFalse(Label.objects.filter(id=self.label.id).exists())
-       
+
     def test_label_delete_error(self):
         task = Task.objects.first()
         task.labels.add(self.label)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTemplateUsed('labels/label_delete.html')
-        self.assertRaisesMessage(response, 'Невозможно удалить метку, потому что она используется')
+        self.assertRaisesMessage(response, ('Невозможно удалить метку, '
+                                            'потому что она используется'))
         self.assertTrue(Task.objects.filter(id=self.label.id).exists())
-   

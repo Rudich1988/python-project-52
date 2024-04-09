@@ -9,8 +9,6 @@ from users.models import CustomUser
 from tasks.models import Task
 
 
-#тесты
-
 class StatusShowTestCase(TestCase):
     fixtures = ['statuses.json', 'users.json']
 
@@ -22,17 +20,18 @@ class StatusShowTestCase(TestCase):
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, 'statuses/statuses_show.html')
-        self.assertEqual(list(response.context_data['statuses']), list(statuses))
+        self.assertEqual(list(response.context_data['statuses']),
+                         list(statuses))
 
 
 class C(TestCase):
     fixtures = ['statuses.json', 'users.json']
-    
+
     def setUp(self):
         self.path = reverse('statuses:status_create')
         self.data = {'name': 'test_status'}
         self.user = CustomUser.objects.first()
-    
+
     def test_status_create_get(self):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
@@ -54,7 +53,8 @@ class U(TestCase):
     def setUp(self):
         self.user = CustomUser.objects.first()
         self.status = Status.objects.first()
-        self.path = reverse('statuses:status_update', kwargs={'pk': self.status.id})
+        self.path = reverse('statuses:status_update',
+                            kwargs={'pk': self.status.id})
         self.data = {'name': 'try_update'}
 
     def test_status_update_get(self):
@@ -79,7 +79,8 @@ class D(TestCase):
     def setUp(self):
         self.user = CustomUser.objects.first()
         self.status = Status.objects.first()
-        self.path = reverse('statuses:status_delete', kwargs={'pk': self.status.id})
+        self.path = reverse('statuses:status_delete',
+                            kwargs={'pk': self.status.id})
 
     def test_status_delete(self):
         self.client.force_login(self.user)
@@ -96,4 +97,5 @@ class D(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTrue(Status.objects.filter(name=self.status.name).exists())
         self.assertRedirects(response, reverse('statuses:statuses_show'))
-        self.assertRaisesMessage(response, 'Невозможно удалить статус, потому что он используется')
+        self.assertRaisesMessage(response, ('Невозможно удалить статус, '
+                                            'потому что он используется'))

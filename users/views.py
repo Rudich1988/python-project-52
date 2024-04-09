@@ -27,14 +27,15 @@ class UsersShowView(ListView):
         context = super().get_context_data(**kwargs)
         context['users'] = CustomUser.objects.all().order_by('created_at')
         return context
-    
+
 
 class UserDeleteView(ModificationUserMixin, SuccessMessageMixin, DeleteView):
     model = CustomUser
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users:users_show')
     success_message = 'Пользователь успешно удален'
-    permission_message = 'Невозможно удалить пользователя, потому что он используется'
+    permission_message = ('Невозможно удалить пользователя, '
+                          'потому что он используется')
     permission_url = reverse_lazy('users:users_show')
 
     def post(self, request, *args, **kwargs):
@@ -60,4 +61,3 @@ class UserUpdateView(ModificationUserMixin, SuccessMessageMixin, UpdateView):
         logout(self.request)
         messages.success(self.request, self.success_message)
         return redirect(self.success_url)
-    
