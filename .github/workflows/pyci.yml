@@ -30,6 +30,6 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: |
-            echo $SECRET_KEY
             poetry run coverage run ./manage.py test
+            poetry run coverage report
           debug: false
