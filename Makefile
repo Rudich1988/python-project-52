@@ -11,6 +11,8 @@ test:
 	python3 manage.py test
 
 test-coverage:
+	poetry run coverage run ./manage.py test
+	poetry run coverage xml
 	poetry run coverage report
 
 lint:
@@ -18,3 +20,4 @@ lint:
 
 shell:
 	poetry shell
+

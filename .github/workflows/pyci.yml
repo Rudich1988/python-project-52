@@ -29,8 +29,5 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: |
-            poetry run coverage run ./manage.py test
-            poetry run coverage xml
-            poetry run coverage report
+          coverageCommand: make test-coverage
           debug: false
