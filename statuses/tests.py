@@ -10,7 +10,7 @@ from tasks.models import Task
 
 
 class StatusShowTestCase(TestCase):
-    fixtures = ['statuses.json', 'users.json']
+    fixtures = ['fixtures/statuses.json', 'fixtures/users.json']
 
     def test_status_show(self):
         user = CustomUser.objects.first()
@@ -25,7 +25,7 @@ class StatusShowTestCase(TestCase):
 
 
 class C(TestCase):
-    fixtures = ['statuses.json', 'users.json']
+    fixtures = ['fixtures/statuses.json', 'fixtures/users.json']
 
     def setUp(self):
         self.path = reverse('statuses:status_create')
@@ -48,7 +48,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users.json', 'statuses.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
@@ -74,7 +74,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()

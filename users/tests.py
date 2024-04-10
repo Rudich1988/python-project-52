@@ -10,7 +10,7 @@ from statuses.models import Status
 
 
 class UsersShowTestCase(TestCase):
-    fixtures = ['users.json']
+    fixtures = ['fixtures/users.json']
 
     def test_list(self):
         users = CustomUser.objects.all()
@@ -54,7 +54,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users.json']
+    fixtures = ['fixtures/users.json']
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='test1')
@@ -101,7 +101,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json', 'statuses.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json']
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='test1')

@@ -9,7 +9,7 @@ from labels.models import Label
 
 
 class LabelsShowTestCase(TestCase):
-    fixtures = ['labels.json', 'users.json']
+    fixtures = ['fixtures/labels.json', 'fixtures/users.json']
 
     def test_labels_show(self):
         user = CustomUser.objects.first()
@@ -23,7 +23,7 @@ class LabelsShowTestCase(TestCase):
 
 
 class C(TestCase):
-    fixtures = ['users.json', 'labels.json']
+    fixtures = ['fixtures/users.json', 'fixtures/labels.json']
 
     def setUp(self):
         self.path = reverse('labels:label_create')
@@ -46,7 +46,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users.json', 'labels.json']
+    fixtures = ['fixtures/users.json', 'fixtures/labels.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
@@ -72,7 +72,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json', 'labels.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json', 'fixtures/labels.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()

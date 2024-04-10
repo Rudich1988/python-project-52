@@ -8,7 +8,7 @@ from tasks.models import Task
 
 
 class TaskShowTestCase(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json']
 
     def test_tasks_show(self):
         user = CustomUser.objects.first()
@@ -22,7 +22,7 @@ class TaskShowTestCase(TestCase):
 
 
 class TaskDetailTestCase(TestCase):
-    fixtures = ['tasks.json', 'users.json', 'statuses.json']
+    fixtures = ['fixtures/tasks.json', 'fixtures/users.json', 'fixtures/statuses.json']
 
     def test_task_detail(self):
         task = Task.objects.first()
@@ -35,7 +35,7 @@ class TaskDetailTestCase(TestCase):
 
 
 class C(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json']
 
     def setUp(self):
         self.path = reverse('tasks:task_create')
@@ -61,7 +61,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users.json', 'tasks.json', 'statuses.json']
+    fixtures = ['fixtures/users.json', 'fixtures/tasks.json', 'fixtures/statuses.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
@@ -89,7 +89,7 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
