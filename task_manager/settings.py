@@ -19,7 +19,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 #load_dotenv(os.path.join(BASE_DIR, '.env'))
-#load_dotenv()
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-#SECRET_KEY = os.getenv("SECRET_KEY")
-SECRET_KEY = '1467thknfgt&lkop-poiuhnmjdjknkl3876'
+SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY = '1467thknfgt&lkop-poiuhnmjdjknkl3876'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -92,12 +92,22 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3',
     )
 }
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
