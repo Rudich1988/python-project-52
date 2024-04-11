@@ -92,7 +92,8 @@ class D(TestCase):
 
     def test_status_delete_error(self):
         self.client.force_login(self.user)
-        new_task = Task.objects.create(author=self.user, status=self.status)
+        task = Task.objects.first()
+        self.status.tasks_status.add(task)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertTrue(Status.objects.filter(name=self.status.name).exists())
