@@ -29,7 +29,7 @@ class UserRegistrationForm(UserCreationForm):
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
 
 
-class UserUpdateForm(forms.ModelForm):   
+class UserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(label=gettext('Имя'))
     last_name = forms.CharField(label=gettext('Фамилия'))
     username = forms.CharField(label=gettext('Имя пользователя'),

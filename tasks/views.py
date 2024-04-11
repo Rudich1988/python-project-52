@@ -32,7 +32,9 @@ class TasksShowView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         task_author = self.request.GET.get('author')
         if task_author:
-            return TaskFilter(self.request.GET, queryset=Task.objects.filter(author=self.request.user))
+            task = Task.objects.filter(author=self.request.user)
+            return TaskFilter(self.request.GET,
+                              queryset=task)
         return TaskFilter(self.request.GET, queryset=Task.objects.all())
 
     def get_context_data(self, **kwargs):

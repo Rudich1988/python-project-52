@@ -47,4 +47,3 @@ class UserLogoutView(LogoutView):
         logout(request)
         messages.info(request, 'Вы разлогинены')
         return redirect('index')
-
