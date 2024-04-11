@@ -21,7 +21,7 @@ class TaskCreateForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'labels']
-
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({'class': 'form-control',
@@ -42,6 +42,7 @@ class TaskCreateForm(forms.ModelForm):
         self.labels['labels'].widget.attrs.update({'name': 'labels',
                                                    'class': 'form-select',
                                                    'id': 'id_labels'})
+    '''
 
 
 class TaskSearchForm(forms.Form):
@@ -60,7 +61,7 @@ class TaskSearchForm(forms.Form):
     class Meta:
         model = Task
         field = ['status', 'executor', 'labels', 'author']
-
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['status'].widget.attrs.update({'class': 'form-select',
@@ -72,3 +73,4 @@ class TaskSearchForm(forms.Form):
         self.fields['labels'].widget.attrs.update({'class': 'form-select',
                                                    'name': 'label',
                                                    'id': 'id_label'})
+    '''

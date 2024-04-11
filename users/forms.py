@@ -22,7 +22,7 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
-
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Имя'), 'required id': 'id_first_name', 'maxlength': 150})
@@ -30,6 +30,7 @@ class UserRegistrationForm(UserCreationForm):
         self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Имя пользователя'), 'required id': 'id_username', 'maxlength': 150})
         self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Пароль'), 'required id': 'id_password1', 'maxlength': 150, 'autocomplete': 'new-password'})
         self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Подтверждение пароля'), 'required id': 'id_password2', 'maxlength': 150, 'autocomplete': 'new-password'})
+    '''
 
 
 class UserUpdateForm(forms.ModelForm):   
@@ -53,7 +54,7 @@ class UserUpdateForm(forms.ModelForm):
         model = CustomUser
         fields = ['first_name', 'last_name',
                   'username', 'password1', 'password2']
-
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class': 'form-control',
@@ -78,6 +79,7 @@ class UserUpdateForm(forms.ModelForm):
                                                       'required id': 'id_password2',
                                                       'maxlength': 150,
                                                       'autocomplete': 'new-password'})
+    '''
 
 
 class UserLoginForm(AuthenticationForm):
