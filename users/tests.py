@@ -101,10 +101,10 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['fixtures/users.json', 'fixtures/statuses.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json']
 
     def setUp(self):
-        self.user = CustomUser.objects.get(username='test1')
+        self.user = CustomUser.objects.get(username='igor')
         self.path = reverse('users:user_delete', kwargs={'pk': self.user.id})
 
     def test_user_delete_success(self):
@@ -128,8 +128,8 @@ class D(TestCase):
 
     def test_user_delete_error_with_task(self):
         self.client.force_login(self.user)
-        new_task = Task.objects.create(author=self.user, name='new',
-                                       status=Status.objects.first())
+        task = Task.objects.first()
+        self.user.tasks_author.add(task)
         path = reverse('users:user_delete', kwargs={'pk': self.user.id})
         response = self.client.post(path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
