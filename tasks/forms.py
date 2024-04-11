@@ -15,16 +15,16 @@ class TaskCreateForm(forms.ModelForm):
     executor = forms.ModelChoiceField(queryset=CustomUser.objects.all(),
                                       required=False)
     author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
-    labels = forms.ModelMultipleChoiceField(queryset=Label.objects.all(),
+    labels = forms.ModelMultipleChoiceField(label='Метки', queryset=Label.objects.all(),
                                             required=False)
 
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'labels']
-        labels = {'name': 'Имя', 'description': gettext('Описание'),
-                  'status': gettext('Статус'),
-                  'executor': gettext('Испонитель'),
-                  'label_set': gettext('Метки')}
+        #labels = {'name': gettext('Имя'), 'description': gettext('Описание'),
+         #         'status': gettext('Статус'),
+          #        'executor': gettext('Испонитель'),
+           #       'labels': gettext('Метки')}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
