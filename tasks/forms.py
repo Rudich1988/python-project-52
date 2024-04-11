@@ -15,34 +15,13 @@ class TaskCreateForm(forms.ModelForm):
     executor = forms.ModelChoiceField(queryset=CustomUser.objects.all(),
                                       required=False)
     author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
-    labels = forms.ModelMultipleChoiceField(label='Метки', queryset=Label.objects.all(),
+    labels = forms.ModelMultipleChoiceField(label='Метки',
+                                            queryset=Label.objects.all(),
                                             required=False)
 
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'labels']
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form-control',
-                                                 'placeholder': gettext('Имя'),
-                                                 'required id': 'id_name',
-                                                 'max_length': 150})
-        self.fields['description'].widget.attrs.update({'name': 'description',
-                                                        'cols': 40,
-                                                        'class': 'form-control',
-                                                        'placeholder': gettext('Описание'),
-                                                        'id': 'id_description'})
-        self.fields['status'].widget.attrs.update({'name': 'status',
-                                                   'class': 'form-select',
-                                                   'required id': 'id_status'})
-        self.fields['executor'].widget.attrs.update({'name': 'executor',
-                                                     'class': 'form-select',
-                                                     'id': 'id_executor'})
-        self.labels['labels'].widget.attrs.update({'name': 'labels',
-                                                   'class': 'form-select',
-                                                   'id': 'id_labels'})
-    '''
 
 
 class TaskSearchForm(forms.Form):
@@ -61,16 +40,3 @@ class TaskSearchForm(forms.Form):
     class Meta:
         model = Task
         field = ['status', 'executor', 'labels', 'author']
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['status'].widget.attrs.update({'class': 'form-select',
-                                                   'name': 'status',
-                                                   'id': 'id_status'})
-        self.fields['executor'].widget.attrs.update({'class': 'form-select',
-                                                     'name': 'executor',
-                                                     'id': 'id_executor'})
-        self.fields['labels'].widget.attrs.update({'class': 'form-select',
-                                                   'name': 'label',
-                                                   'id': 'id_label'})
-    '''

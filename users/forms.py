@@ -22,15 +22,6 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['first_name'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Имя'), 'required id': 'id_first_name', 'maxlength': 150})
-        self.fields['last_name'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Фамилия'), 'required id': 'id_last_name', 'maxlength': 150})
-        self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Имя пользователя'), 'required id': 'id_username', 'maxlength': 150})
-        self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Пароль'), 'required id': 'id_password1', 'maxlength': 150, 'autocomplete': 'new-password'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': gettext('Подтверждение пароля'), 'required id': 'id_password2', 'maxlength': 150, 'autocomplete': 'new-password'})
-    '''
 
 
 class UserUpdateForm(forms.ModelForm):   
@@ -54,32 +45,6 @@ class UserUpdateForm(forms.ModelForm):
         model = CustomUser
         fields = ['first_name', 'last_name',
                   'username', 'password1', 'password2']
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['first_name'].widget.attrs.update({'class': 'form-control',
-                                                       'placeholder': gettext('Имя'),
-                                                       'required id': 'id_first_name',
-                                                       'maxlength': 150})
-        self.fields['last_name'].widget.attrs.update({'class': 'form-control',
-                                                      'placeholder': gettext('Фамилия'),
-                                                      'required id': 'id_last_name',
-                                                      'maxlength': 150})
-        self.fields['username'].widget.attrs.update({'class': 'form-control',
-                                                     'placeholder': gettext('Имя пользователя'),
-                                                     'required id': 'id_username',
-                                                     'maxlength': 150})
-        self.fields['password1'].widget.attrs.update({'class': 'form-control',
-                                                      'placeholder': gettext('Пароль'),
-                                                      'required id': 'id_password1',
-                                                      'maxlength': 150,
-                                                      'autocomplete': 'new-password'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control',
-                                                      'placeholder': gettext('Подтверждение пароля'),
-                                                      'required id': 'id_password2',
-                                                      'maxlength': 150,
-                                                      'autocomplete': 'new-password'})
-    '''
 
 
 class UserLoginForm(AuthenticationForm):
@@ -91,17 +56,3 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'password')
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control',
-                                                     'placeholder': gettext('Имя пользователя'),
-                                                     'required id': 'id_username',
-                                                     'maxlength': 150,
-                                                     'autocomplete': 'username',
-                                                     'autofocus autocapitalize': 'none'})
-        self.fields['password'].widget.attrs.update({'class': 'form-control',
-                                                     'placeholder': gettext('Пароль'),
-                                                     'required id': 'id_password',
-                                                     'autocomplete': 'current-password'})
-    '''

@@ -10,11 +10,3 @@ class LabelCreateForm(forms.ModelForm):
     class Meta:
         model = Label
         fields = ['name']
-    '''
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form_control',
-                                                 'placeholder': gettext('Имя'),
-                                                 'required id': 'id_name',
-                                                 'name': 'name'})
-    '''
