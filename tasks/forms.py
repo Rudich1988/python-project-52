@@ -21,10 +21,6 @@ class TaskCreateForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'labels']
-        #labels = {'name': gettext('Имя'), 'description': gettext('Описание'),
-         #         'status': gettext('Статус'),
-          #        'executor': gettext('Испонитель'),
-           #       'labels': gettext('Метки')}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

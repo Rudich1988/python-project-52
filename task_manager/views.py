@@ -1,7 +1,4 @@
-from typing import Any
-from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect
-from django.template.response import TemplateResponse
 from django.views.generic import TemplateView
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView

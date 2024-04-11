@@ -89,7 +89,7 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'password')
-
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'form-control',
@@ -102,3 +102,4 @@ class UserLoginForm(AuthenticationForm):
                                                      'placeholder': gettext('Пароль'),
                                                      'required id': 'id_password',
                                                      'autocomplete': 'current-password'})
+    '''

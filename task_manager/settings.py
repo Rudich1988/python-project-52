@@ -18,7 +18,7 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-#load_dotenv(os.path.join(BASE_DIR, '.env'))
+
 load_dotenv()
 
 
@@ -28,7 +28,6 @@ load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-#SECRET_KEY = '1467thknfgt&lkop-poiuhnmjdjknkl3876'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
