@@ -19,7 +19,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 #load_dotenv(os.path.join(BASE_DIR, '.env'))
-#load_dotenv()
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-#SECRET_KEY = os.getenv("SECRET_KEY", default='supersecret')
-SECRET_KEY = '1467thknfgt&lkop-poiuhnmjdjknkl3876'
+SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY = '1467thknfgt&lkop-poiuhnmjdjknkl3876'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
