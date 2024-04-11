@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 11:49+0000\n"
+"POT-Creation-Date: 2024-04-11 18:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,18 @@ msgstr ""
 #: statuses/forms.py:17 task_manager/templates/labels/labels_show.html:31
 #: task_manager/templates/statuses/statuses_show.html:31
 #: task_manager/templates/tasks/tasks_show.html:42 tasks/forms.py:12
-#: tasks/forms.py:24 tasks/forms.py:32 users/forms.py:11 users/forms.py:28
-#: users/forms.py:36 users/forms.py:60
+#: tasks/forms.py:32 users/forms.py:11 users/forms.py:28 users/forms.py:36
+#: users/forms.py:60
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: task_manager/templates/base.html:10
 msgid "Менеджер задач Hexlet"
-msgstr "Name"
+msgstr "Task maneger Hexlet"
 
 #: task_manager/templates/base.html:16
 msgid "Менеджер задач"
-msgstr "Task_manager"
+msgstr "Task maneger"
 
 #: task_manager/templates/base.html:23
 #: task_manager/templates/users/users_show.html:25
@@ -45,8 +45,7 @@ msgid "Статусы"
 msgstr "Statuses"
 
 #: task_manager/templates/base.html:30
-#: task_manager/templates/labels/labels_show.html:24 tasks/forms.py:18
-#: tasks/forms.py:27
+#: task_manager/templates/labels/labels_show.html:24
 msgid "Метки"
 msgstr "Labels"
 
@@ -151,7 +150,6 @@ msgid "Создать статус"
 msgstr "Create status"
 
 #: task_manager/templates/statuses/status_delete.html:8
-#: task_manager/templates/tasks/task_delete.html:8
 msgid "Удаление статуса"
 msgstr "Delete status"
 
@@ -163,6 +161,10 @@ msgstr "Update status"
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Создать задачу"
 msgstr "Create task"
+
+#: task_manager/templates/tasks/task_delete.html:8
+msgid "Удаление задачи"
+msgstr "Delete task"
 
 #: task_manager/templates/tasks/task_detail.html:8
 msgid "Просмотр задачи"
@@ -179,8 +181,7 @@ msgid "Исполнитель"
 msgstr "Executor"
 
 #: task_manager/templates/tasks/task_detail.html:27
-#: task_manager/templates/tasks/tasks_show.html:43 tasks/forms.py:25
-#: tasks/forms.py:52
+#: task_manager/templates/tasks/tasks_show.html:43 tasks/forms.py:52
 msgid "Статус"
 msgstr "Status"
 
@@ -207,19 +208,15 @@ msgstr "Update user"
 #: task_manager/templates/users/users_show.html:31 users/forms.py:13
 #: users/forms.py:30 users/forms.py:38 users/forms.py:68 users/forms.py:96
 msgid "Имя пользователя"
-msgstr "First name"
+msgstr "Username"
 
 #: task_manager/templates/users/users_show.html:32
 msgid "Полное имя"
 msgstr "Full name"
 
-#: tasks/forms.py:24 tasks/forms.py:38
+#: tasks/forms.py:38
 msgid "Описание"
 msgstr "Description"
-
-#: tasks/forms.py:26
-msgid "Испонитель"
-msgstr "Executor"
 
 #: tasks/forms.py:58
 msgid "Метка"
@@ -250,7 +247,7 @@ msgstr "Your password must contain at least 3 characters."
 
 #: users/forms.py:17 users/forms.py:32 users/forms.py:43 users/forms.py:77
 msgid "Подтверждение пароля"
-msgstr "Password confirmation"
+msgstr "Confirm password"
 
 #: users/forms.py:18
 msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
