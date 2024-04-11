@@ -40,7 +40,7 @@ class UserDeleteView(ModificationUserMixin, SuccessMessageMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         if (self.get_object().tasks_author.all().exists()
-            or self.get_object().tasks_executor.all().exists()):
+                or self.get_object().tasks_executor.all().exists()):
             messages.error(self.request, self.permission_message)
             return redirect('users:users_show')
         return super().post(request, *args, **kwargs)
