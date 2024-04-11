@@ -72,7 +72,8 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['fixtures/users.json', 'fixtures/statuses.json', 'fixtures/tasks.json', 'fixtures/labels.json']
+    fixtures = ['fixtures/users.json', 'fixtures/statuses.json',
+                'fixtures/tasks.json', 'fixtures/labels.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
