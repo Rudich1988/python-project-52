@@ -6,7 +6,6 @@ from django.urls import reverse
 
 from users.models import CustomUser
 from tasks.models import Task
-from statuses.models import Status
 
 
 class UsersShowTestCase(TestCase):
