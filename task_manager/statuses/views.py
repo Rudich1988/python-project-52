@@ -6,8 +6,8 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 
-from statuses.models import Status
-from statuses.forms import StatusCreateForm
+from task_manager.statuses.models import Status
+from task_manager.statuses.forms import StatusCreateForm
 
 
 class StatusesCreateView(SuccessMessageMixin, CreateView):

@@ -2,10 +2,10 @@ from django import forms
 from django.utils.translation import gettext
 
 
-from tasks.models import Task
-from statuses.models import Status
-from users.models import CustomUser
-from labels.models import Label
+from task_manager.tasks.models import Task
+from task_manager.statuses.models import Status
+from task_manager.users.models import CustomUser
+from task_manager.labels.models import Label
 
 
 class TaskCreateForm(forms.ModelForm):

@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
 
-from users.models import CustomUser
-from users.forms import UserLoginForm
+from task_manager.users.models import CustomUser
+from task_manager.users.forms import UserLoginForm
 
 
 class IndexView(TemplateView):

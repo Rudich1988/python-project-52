@@ -4,8 +4,8 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-from users.models import CustomUser
-from tasks.models import Task
+from task_manager.users.models import CustomUser
+from task_manager.tasks.models import Task
 
 
 class UsersShowTestCase(TestCase):

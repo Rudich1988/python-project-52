@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 18:53+0000\n"
+"POT-Creation-Date: 2024-04-13 12:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: labels/forms.py:8 labels/forms.py:17 statuses/forms.py:8
-#: statuses/forms.py:17 task_manager/templates/labels/labels_show.html:31
+#: task_manager/labels/forms.py:8 task_manager/statuses/forms.py:8
+#: task_manager/tasks/forms.py:12
+#: task_manager/templates/labels/labels_show.html:31
 #: task_manager/templates/statuses/statuses_show.html:31
-#: task_manager/templates/tasks/tasks_show.html:42 tasks/forms.py:12
-#: tasks/forms.py:32 users/forms.py:11 users/forms.py:28 users/forms.py:36
-#: users/forms.py:60
+#: task_manager/templates/tasks/tasks_show.html:42
+#: task_manager/users/forms.py:13 task_manager/users/forms.py:33
 msgid "Имя"
 msgstr "Name"
 
+#: task_manager/tasks/forms.py:28
+#: task_manager/templates/tasks/task_detail.html:27
+#: task_manager/templates/tasks/tasks_show.html:43
+msgid "Статус"
+msgstr "Status"
+
+#: task_manager/tasks/forms.py:31
+#: task_manager/templates/tasks/task_detail.html:23
+#: task_manager/templates/tasks/tasks_show.html:45
+msgid "Исполнитель"
+msgstr "Executor"
+
+#: task_manager/tasks/forms.py:34
+msgid "Метка"
+msgstr "Label"
+
+#: task_manager/tasks/forms.py:37
+msgid "Только свои задачи"
+msgstr "My tasks"
+
 #: task_manager/templates/base.html:10
 msgid "Менеджер задач Hexlet"
-msgstr "Task maneger Hexlet"
+msgstr "Task manager Hexlet"
 
 #: task_manager/templates/base.html:16
 msgid "Менеджер задач"
-msgstr "Task maneger"
+msgstr "Task manager"
 
 #: task_manager/templates/base.html:23
 #: task_manager/templates/users/users_show.html:25
@@ -130,7 +150,7 @@ msgstr "Update"
 #: task_manager/templates/tasks/tasks_show.html:46
 #: task_manager/templates/users/users_show.html:33
 msgid "Дата создания"
-msgstr "Date of creation"
+msgstr "Date creation"
 
 #: task_manager/templates/labels/labels_show.html:46
 #: task_manager/templates/statuses/statuses_show.html:46
@@ -142,7 +162,7 @@ msgstr "Delete"
 
 #: task_manager/templates/login.html:31
 msgid "Войти"
-msgstr "Login"
+msgstr "Logout"
 
 #: task_manager/templates/statuses/status_create.html:10
 #: task_manager/templates/statuses/statuses_show.html:26
@@ -175,16 +195,6 @@ msgstr "Viewing task"
 msgid "Автор"
 msgstr "Author"
 
-#: task_manager/templates/tasks/task_detail.html:23
-#: task_manager/templates/tasks/tasks_show.html:45 tasks/forms.py:55
-msgid "Исполнитель"
-msgstr "Executor"
-
-#: task_manager/templates/tasks/task_detail.html:27
-#: task_manager/templates/tasks/tasks_show.html:43 tasks/forms.py:52
-msgid "Статус"
-msgstr "Status"
-
 #: task_manager/templates/tasks/task_update.html:10
 msgid "Изменение задачи"
 msgstr "Update task"
@@ -205,8 +215,8 @@ msgstr "Delete user"
 msgid "Изменение пользователя"
 msgstr "Update user"
 
-#: task_manager/templates/users/users_show.html:31 users/forms.py:13
-#: users/forms.py:30 users/forms.py:38 users/forms.py:68 users/forms.py:96
+#: task_manager/templates/users/users_show.html:31
+#: task_manager/users/forms.py:15 task_manager/users/forms.py:35
 msgid "Имя пользователя"
 msgstr "Username"
 
@@ -214,46 +224,14 @@ msgstr "Username"
 msgid "Полное имя"
 msgstr "Full name"
 
-#: tasks/forms.py:38
-msgid "Описание"
-msgstr "Description"
-
-#: tasks/forms.py:58
-msgid "Метка"
-msgstr "Label"
-
-#: tasks/forms.py:61
-msgid "Только свои задачи"
-msgstr "My tasks"
-
-#: users/forms.py:12 users/forms.py:29 users/forms.py:37 users/forms.py:64
+#: task_manager/users/forms.py:14 task_manager/users/forms.py:34
 msgid "Фамилия"
 msgstr "Last name"
 
-#: users/forms.py:14 users/forms.py:39
-msgid ""
-"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
-"+/-/_."
-msgstr "Required field. No more than 150 characters. Only letters, numbers, and @/ characters./"
-
-#: users/forms.py:15 users/forms.py:31 users/forms.py:40 users/forms.py:72
-#: users/forms.py:102
+#: task_manager/users/forms.py:17 task_manager/users/forms.py:37
 msgid "Пароль"
 msgstr "Password"
 
-#: users/forms.py:16 users/forms.py:41
-msgid "Ваш пароль должен содержать как минимум 3 символа."
-msgstr "Your password must contain at least 3 characters."
-
-#: users/forms.py:17 users/forms.py:32 users/forms.py:43 users/forms.py:77
+#: task_manager/users/forms.py:20 task_manager/users/forms.py:40
 msgid "Подтверждение пароля"
 msgstr "Confirm password"
-
-#: users/forms.py:18
-msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
-msgstr "To confirm, please enter the password again."
-
-#: users/forms.py:20
-msgid ""
-"Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
-msgstr "The entered password is too short. It must contain at least 3 characters."

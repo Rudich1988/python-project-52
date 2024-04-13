@@ -5,9 +5,9 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
-from tasks.models import Task
-from tasks.forms import TaskCreateForm, TaskSearchForm
-from common.views import TaskDeleteMixin
+from task_manager.tasks.models import Task
+from task_manager.tasks.forms import TaskCreateForm, TaskSearchForm
+from task_manager.common.views import TaskDeleteMixin
 from .filters import TaskFilter
 
 

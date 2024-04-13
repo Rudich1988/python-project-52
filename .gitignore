@@ -162,3 +162,5 @@ cython_debug/
 coverage.xml
 
 .lock
+.vscode
+.idea

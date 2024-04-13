@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext
 
-from statuses.models import Status
+from task_manager.statuses.models import Status
 
 
 class StatusCreateForm(forms.ModelForm):

@@ -4,9 +4,9 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-from statuses.models import Status
-from users.models import CustomUser
-from tasks.models import Task
+from task_manager.statuses.models import Status
+from task_manager.users.models import CustomUser
+from task_manager.tasks.models import Task
 
 
 class StatusShowTestCase(TestCase):

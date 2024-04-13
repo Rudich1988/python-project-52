@@ -6,9 +6,9 @@ from django.views.generic.list import ListView
 from django.contrib import messages
 from django.shortcuts import redirect
 
-from users.models import CustomUser
-from users.forms import UserRegistrationForm, UserUpdateForm
-from common.views import ModificationUserMixin
+from task_manager.users.models import CustomUser
+from task_manager.users.forms import UserRegistrationForm, UserUpdateForm
+from task_manager.common.views import ModificationUserMixin
 
 
 class UserRegistrationView(SuccessMessageMixin, CreateView):

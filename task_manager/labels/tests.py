@@ -3,9 +3,9 @@ from http import HTTPStatus
 from django.test import TestCase
 from django.urls import reverse
 
-from users.models import CustomUser
-from tasks.models import Task
-from labels.models import Label
+from task_manager.users.models import CustomUser
+from task_manager.tasks.models import Task
+from task_manager.labels.models import Label
 
 
 class LabelsShowTestCase(TestCase):

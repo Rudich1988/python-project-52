@@ -3,8 +3,8 @@ from django.utils.translation import gettext_lazy as _, gettext
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-from users.models import CustomUser
-from users.help_error_texts import (USERNAME_HELP_TEXT, PASSWORD_ERROR_TEXT,
+from task_manager.users.models import CustomUser
+from task_manager.users.help_error_texts import (USERNAME_HELP_TEXT, PASSWORD_ERROR_TEXT,
                                     PASSWORD_HELP_TEXT, PASSWORD2_HELP_TEXT)
 
 
