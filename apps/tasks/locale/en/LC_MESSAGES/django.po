@@ -19,32 +19,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: apps/tasks/forms.py:12
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: apps/tasks/forms.py:28
 msgid "Статус"
-msgstr ""
+msgstr "Status"
 
 #: apps/tasks/forms.py:31
 msgid "Исполнитель"
-msgstr ""
+msgstr "Executor"
 
 #: apps/tasks/forms.py:34
 msgid "Метка"
-msgstr ""
+msgstr "Label"
 
 #: apps/tasks/forms.py:37
 msgid "Только свои задачи"
-msgstr ""
+msgstr "My tasks"
 
 #: apps/tasks/views.py:21
 msgid "Задача успешно создана"
-msgstr ""
+msgstr "The task has been successfully created"
 
 #: apps/tasks/views.py:61
 msgid "Задача успешно удалена"
-msgstr ""
+msgstr "The task has been successfully deleted"
 
 #: apps/tasks/views.py:68
 msgid "Задача успешно изменена"
-msgstr ""
+msgstr "The task has been successfully updated"

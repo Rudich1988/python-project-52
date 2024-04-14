@@ -19,89 +19,89 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: task_manager/templates/base.html:10
 msgid "Менеджер задач Hexlet"
-msgstr ""
+msgstr "Task manager Hexlet"
 
 #: task_manager/templates/base.html:16
 msgid "Менеджер задач"
-msgstr ""
+msgstr "Task manager"
 
 #: task_manager/templates/base.html:23
 #: task_manager/templates/users/users_show.html:25
 msgid "Пользователи"
-msgstr ""
+msgstr "Users"
 
 #: task_manager/templates/base.html:27
 #: task_manager/templates/statuses/statuses_show.html:24
 msgid "Статусы"
-msgstr ""
+msgstr "Statuses"
 
 #: task_manager/templates/base.html:30
 #: task_manager/templates/labels/labels_show.html:24
 msgid "Метки"
-msgstr ""
+msgstr "Labels"
 
 #: task_manager/templates/base.html:33
 #: task_manager/templates/tasks/tasks_show.html:27
 msgid "Задачи"
-msgstr ""
+msgstr "Tasks"
 
 #: task_manager/templates/base.html:36
 msgid "Выход"
-msgstr ""
+msgstr "Logout"
 
 #: task_manager/templates/base.html:40 task_manager/templates/login.html:26
 msgid "Вход"
-msgstr ""
+msgstr "Login"
 
 #: task_manager/templates/base.html:43
 #: task_manager/templates/users/registration.html:10
 msgid "Регистрация"
-msgstr ""
+msgstr "Sign in"
 
 #: task_manager/templates/index.html:26
 msgid "Привет от Хекслета!"
-msgstr ""
+msgstr "Hello from Hexlet!"
 
 #: task_manager/templates/index.html:27
 msgid "Практические курсы по программированию"
-msgstr ""
+msgstr "Practical programming courses"
 
 #: task_manager/templates/index.html:29
 msgid "Узнать больше"
-msgstr ""
+msgstr "Learn more"
 
 #: task_manager/templates/labels/label_create.html:10
 #: task_manager/templates/labels/labels_show.html:26
 msgid "Создать метку"
-msgstr ""
+msgstr "Create label"
 
 #: task_manager/templates/labels/label_create.html:15
 #: task_manager/templates/statuses/status_create.html:15
 #: task_manager/templates/tasks/task_create.html:15
 msgid "Создать"
-msgstr ""
+msgstr "Create"
 
 #: task_manager/templates/labels/label_delete.html:8
 msgid "Удаление метки"
-msgstr ""
+msgstr "Delete label"
 
 #: task_manager/templates/labels/label_delete.html:10
 #: task_manager/templates/statuses/status_delete.html:10
 #: task_manager/templates/tasks/task_delete.html:10
 #: task_manager/templates/users/user_delete.html:10
 msgid "Вы уверены, что хотите удалить"
-msgstr ""
+msgstr "Are you sure you want to delete"
 
 #: task_manager/templates/labels/label_delete.html:13
 #: task_manager/templates/statuses/status_delete.html:13
 #: task_manager/templates/tasks/task_delete.html:13
 #: task_manager/templates/users/user_delete.html:13
 msgid "Да, удалить"
-msgstr ""
+msgstr "Yes, delete"
 
 #: task_manager/templates/labels/label_update.html:10
 msgid "Изменение метки"
-msgstr ""
+msgstr "Update label"
 
 #: task_manager/templates/labels/label_update.html:15
 #: task_manager/templates/labels/labels_show.html:44
@@ -113,13 +113,13 @@ msgstr ""
 #: task_manager/templates/users/user_update.html:15
 #: task_manager/templates/users/users_show.html:45
 msgid "Изменить"
-msgstr ""
+msgstr "Update"
 
 #: task_manager/templates/labels/labels_show.html:31
 #: task_manager/templates/statuses/statuses_show.html:31
 #: task_manager/templates/tasks/tasks_show.html:42
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: task_manager/templates/labels/labels_show.html:32
 #: task_manager/templates/statuses/statuses_show.html:32
@@ -127,7 +127,7 @@ msgstr ""
 #: task_manager/templates/tasks/tasks_show.html:46
 #: task_manager/templates/users/users_show.html:33
 msgid "Дата создания"
-msgstr ""
+msgstr "Date of creation"
 
 #: task_manager/templates/labels/labels_show.html:46
 #: task_manager/templates/statuses/statuses_show.html:46
@@ -135,85 +135,85 @@ msgstr ""
 #: task_manager/templates/tasks/tasks_show.html:79
 #: task_manager/templates/users/users_show.html:47
 msgid "Удалить"
-msgstr ""
+msgstr "Delete"
 
 #: task_manager/templates/login.html:31
 msgid "Войти"
-msgstr ""
+msgstr "Login"
 
 #: task_manager/templates/statuses/status_create.html:10
 #: task_manager/templates/statuses/statuses_show.html:26
 msgid "Создать статус"
-msgstr ""
+msgstr "Create status"
 
 #: task_manager/templates/statuses/status_delete.html:8
 msgid "Удаление статуса"
-msgstr ""
+msgstr "Delete status"
 
 #: task_manager/templates/statuses/status_update.html:10
 msgid "Изменение статуса"
-msgstr ""
+msgstr "Update status"
 
 #: task_manager/templates/tasks/task_create.html:10
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Создать задачу"
-msgstr ""
+msgstr "Create task"
 
 #: task_manager/templates/tasks/task_delete.html:8
 msgid "Удаление задачи"
-msgstr ""
+msgstr "Delete task"
 
 #: task_manager/templates/tasks/task_detail.html:8
 msgid "Просмотр задачи"
-msgstr ""
+msgstr "Show task"
 
 #: task_manager/templates/tasks/task_detail.html:19
 #: task_manager/templates/tasks/tasks_show.html:44
 msgid "Автор"
-msgstr ""
+msgstr "Author"
 
 #: task_manager/templates/tasks/task_detail.html:23
 #: task_manager/templates/tasks/tasks_show.html:45
 msgid "Исполнитель"
-msgstr ""
+msgstr "Executor"
 
 #: task_manager/templates/tasks/task_detail.html:27
 #: task_manager/templates/tasks/tasks_show.html:43
 msgid "Статус"
-msgstr ""
+msgstr "Status"
 
 #: task_manager/templates/tasks/task_update.html:10
 msgid "Изменение задачи"
-msgstr ""
+msgstr "Update task"
 
 #: task_manager/templates/tasks/tasks_show.html:34
 msgid "Показать"
-msgstr ""
+msgstr "Show"
 
 #: task_manager/templates/users/registration.html:15
 msgid "Зарегистрировать"
-msgstr ""
+msgstr "Register"
 
 #: task_manager/templates/users/user_delete.html:8
 msgid "Удаление пользователя"
-msgstr ""
+msgstr "Delete user"
 
 #: task_manager/templates/users/user_update.html:10
 msgid "Изменение пользователя"
-msgstr ""
+msgstr "Update user"
 
 #: task_manager/templates/users/users_show.html:31
 msgid "Имя пользователя"
-msgstr ""
+msgstr "Username"
 
 #: task_manager/templates/users/users_show.html:32
 msgid "Полное имя"
-msgstr ""
+msgstr "Full name"
 
 #: task_manager/views.py:33
 msgid "Вы залогинены"
-msgstr ""
+msgstr "You are logged in"
 
 #: task_manager/views.py:40 task_manager/views.py:49
 msgid "Вы разлогинены"
-msgstr ""
+msgstr "You are logged out"

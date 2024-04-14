@@ -19,20 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: apps/statuses/forms.py:8
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: apps/statuses/views.py:19
 msgid "Статус успешно создан"
-msgstr ""
+msgstr "The status has been successfully created"
 
 #: apps/statuses/views.py:36
 msgid "Статус успешно удален"
-msgstr ""
+msgstr "The status has been successfully deleted"
 
 #: apps/statuses/views.py:41
 msgid "Невозможно удалить статус, потому что он используется"
-msgstr ""
+msgstr "It is not possible to delete the status because it is in use"
 
 #: apps/statuses/views.py:54
 msgid "Статус успешно изменен"
-msgstr ""
+msgstr "The status has been successfully updated"

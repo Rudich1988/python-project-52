@@ -19,32 +19,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: users/forms.py:13 users/forms.py:33
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: users/forms.py:14 users/forms.py:34
 msgid "Фамилия"
-msgstr ""
+msgstr "Last name"
 
 #: users/forms.py:15 users/forms.py:35
 msgid "Имя пользователя"
-msgstr ""
+msgstr "Username"
 
 #: users/forms.py:17 users/forms.py:37
 msgid "Пароль"
-msgstr ""
+msgstr "Password"
 
 #: users/forms.py:20 users/forms.py:40
 msgid "Подтверждение пароля"
-msgstr ""
+msgstr "Confirm password"
 
 #: users/views.py:20
 msgid "Пользователь успешно зарегистрирован"
-msgstr ""
+msgstr "The user has been successfully registered"
 
 #: users/views.py:38
 msgid "Невозможно удалить пользователя, потому что он используется"
-msgstr ""
+msgstr "It is not possible to delete a user because it is being used"
 
 #: users/views.py:55
 msgid "Пользователь успешно изменен"
-msgstr ""
+msgstr "The user has been successfully changed"

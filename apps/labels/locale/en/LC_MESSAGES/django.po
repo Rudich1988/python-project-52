@@ -19,20 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: apps/labels/forms.py:8
 msgid "Имя"
-msgstr ""
+msgstr "Name"
 
 #: apps/labels/views.py:29
 msgid "Метка успешно создана"
-msgstr ""
+msgstr "The label was created successfully"
 
 #: apps/labels/views.py:37
 msgid "Метка успешно изменена"
-msgstr ""
+msgstr "The label was updated successfully"
 
 #: apps/labels/views.py:44
 msgid "Метка успешно удалена"
-msgstr ""
+msgstr "The label was deleted successfully"
 
 #: apps/labels/views.py:49
 msgid "Невозможно удалить метку, потому что она используется"
-msgstr ""
+msgstr "It is not possible to delete the label because it is being used"
