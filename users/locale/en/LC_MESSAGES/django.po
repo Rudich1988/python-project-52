@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-14 14:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: users/forms.py:13 users/forms.py:33
+msgid "Имя"
+msgstr ""
+
+#: users/forms.py:14 users/forms.py:34
+msgid "Фамилия"
+msgstr ""
+
+#: users/forms.py:15 users/forms.py:35
+msgid "Имя пользователя"
+msgstr ""
+
+#: users/forms.py:17 users/forms.py:37
+msgid "Пароль"
+msgstr ""
+
+#: users/forms.py:20 users/forms.py:40
+msgid "Подтверждение пароля"
+msgstr ""
+
+#: users/views.py:20
+msgid "Пользователь успешно зарегистрирован"
+msgstr ""
+
+#: users/views.py:38
+msgid "Невозможно удалить пользователя, потому что он используется"
+msgstr ""
+
+#: users/views.py:55
+msgid "Пользователь успешно изменен"
+msgstr ""

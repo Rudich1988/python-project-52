@@ -3,9 +3,10 @@ from django.views.generic import TemplateView
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
+from django.utils.translation import gettext as _
 
-from task_manager.users.models import CustomUser
-from task_manager.users.forms import UserLoginForm
+from users.models import CustomUser
+from users.forms import UserLoginForm
 
 
 class IndexView(TemplateView):
@@ -29,14 +30,14 @@ class UserLoginView(LoginView):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, 'Вы залогинены')
+                messages.success(request, _('Вы залогинены'))
                 return redirect('index')
         return render(request, self.template_name, context={'form': form})
 
 
 def logoutview(request):
     logout(request)
-    messages.info(request, 'Вы разлогинены')
+    messages.info(request, _('Вы разлогинены'))
     return redirect('index')
 
 
@@ -45,5 +46,5 @@ class UserLogoutView(LogoutView):
 
     def post(self, request, *args, **kwargs):
         logout(request)
-        messages.info(request, 'Вы разлогинены')
+        messages.info(request, _('Вы разлогинены'))
         return redirect('index')

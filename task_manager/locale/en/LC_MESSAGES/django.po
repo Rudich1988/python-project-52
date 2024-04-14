@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-14 14:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: task_manager/templates/base.html:10
+msgid "Менеджер задач Hexlet"
+msgstr ""
+
+#: task_manager/templates/base.html:16
+msgid "Менеджер задач"
+msgstr ""
+
+#: task_manager/templates/base.html:23
+#: task_manager/templates/users/users_show.html:25
+msgid "Пользователи"
+msgstr ""
+
+#: task_manager/templates/base.html:27
+#: task_manager/templates/statuses/statuses_show.html:24
+msgid "Статусы"
+msgstr ""
+
+#: task_manager/templates/base.html:30
+#: task_manager/templates/labels/labels_show.html:24
+msgid "Метки"
+msgstr ""
+
+#: task_manager/templates/base.html:33
+#: task_manager/templates/tasks/tasks_show.html:27
+msgid "Задачи"
+msgstr ""
+
+#: task_manager/templates/base.html:36
+msgid "Выход"
+msgstr ""
+
+#: task_manager/templates/base.html:40 task_manager/templates/login.html:26
+msgid "Вход"
+msgstr ""
+
+#: task_manager/templates/base.html:43
+#: task_manager/templates/users/registration.html:10
+msgid "Регистрация"
+msgstr ""
+
+#: task_manager/templates/index.html:26
+msgid "Привет от Хекслета!"
+msgstr ""
+
+#: task_manager/templates/index.html:27
+msgid "Практические курсы по программированию"
+msgstr ""
+
+#: task_manager/templates/index.html:29
+msgid "Узнать больше"
+msgstr ""
+
+#: task_manager/templates/labels/label_create.html:10
+#: task_manager/templates/labels/labels_show.html:26
+msgid "Создать метку"
+msgstr ""
+
+#: task_manager/templates/labels/label_create.html:15
+#: task_manager/templates/statuses/status_create.html:15
+#: task_manager/templates/tasks/task_create.html:15
+msgid "Создать"
+msgstr ""
+
+#: task_manager/templates/labels/label_delete.html:8
+msgid "Удаление метки"
+msgstr ""
+
+#: task_manager/templates/labels/label_delete.html:10
+#: task_manager/templates/statuses/status_delete.html:10
+#: task_manager/templates/tasks/task_delete.html:10
+#: task_manager/templates/users/user_delete.html:10
+msgid "Вы уверены, что хотите удалить"
+msgstr ""
+
+#: task_manager/templates/labels/label_delete.html:13
+#: task_manager/templates/statuses/status_delete.html:13
+#: task_manager/templates/tasks/task_delete.html:13
+#: task_manager/templates/users/user_delete.html:13
+msgid "Да, удалить"
+msgstr ""
+
+#: task_manager/templates/labels/label_update.html:10
+msgid "Изменение метки"
+msgstr ""
+
+#: task_manager/templates/labels/label_update.html:15
+#: task_manager/templates/labels/labels_show.html:44
+#: task_manager/templates/statuses/status_update.html:15
+#: task_manager/templates/statuses/statuses_show.html:44
+#: task_manager/templates/tasks/task_detail.html:48
+#: task_manager/templates/tasks/task_update.html:15
+#: task_manager/templates/tasks/tasks_show.html:77
+#: task_manager/templates/users/user_update.html:15
+#: task_manager/templates/users/users_show.html:45
+msgid "Изменить"
+msgstr ""
+
+#: task_manager/templates/labels/labels_show.html:31
+#: task_manager/templates/statuses/statuses_show.html:31
+#: task_manager/templates/tasks/tasks_show.html:42
+msgid "Имя"
+msgstr ""
+
+#: task_manager/templates/labels/labels_show.html:32
+#: task_manager/templates/statuses/statuses_show.html:32
+#: task_manager/templates/tasks/task_detail.html:31
+#: task_manager/templates/tasks/tasks_show.html:46
+#: task_manager/templates/users/users_show.html:33
+msgid "Дата создания"
+msgstr ""
+
+#: task_manager/templates/labels/labels_show.html:46
+#: task_manager/templates/statuses/statuses_show.html:46
+#: task_manager/templates/tasks/task_detail.html:50
+#: task_manager/templates/tasks/tasks_show.html:79
+#: task_manager/templates/users/users_show.html:47
+msgid "Удалить"
+msgstr ""
+
+#: task_manager/templates/login.html:31
+msgid "Войти"
+msgstr ""
+
+#: task_manager/templates/statuses/status_create.html:10
+#: task_manager/templates/statuses/statuses_show.html:26
+msgid "Создать статус"
+msgstr ""
+
+#: task_manager/templates/statuses/status_delete.html:8
+msgid "Удаление статуса"
+msgstr ""
+
+#: task_manager/templates/statuses/status_update.html:10
+msgid "Изменение статуса"
+msgstr ""
+
+#: task_manager/templates/tasks/task_create.html:10
+#: task_manager/templates/tasks/tasks_show.html:29
+msgid "Создать задачу"
+msgstr ""
+
+#: task_manager/templates/tasks/task_delete.html:8
+msgid "Удаление задачи"
+msgstr ""
+
+#: task_manager/templates/tasks/task_detail.html:8
+msgid "Просмотр задачи"
+msgstr ""
+
+#: task_manager/templates/tasks/task_detail.html:19
+#: task_manager/templates/tasks/tasks_show.html:44
+msgid "Автор"
+msgstr ""
+
+#: task_manager/templates/tasks/task_detail.html:23
+#: task_manager/templates/tasks/tasks_show.html:45
+msgid "Исполнитель"
+msgstr ""
+
+#: task_manager/templates/tasks/task_detail.html:27
+#: task_manager/templates/tasks/tasks_show.html:43
+msgid "Статус"
+msgstr ""
+
+#: task_manager/templates/tasks/task_update.html:10
+msgid "Изменение задачи"
+msgstr ""
+
+#: task_manager/templates/tasks/tasks_show.html:34
+msgid "Показать"
+msgstr ""
+
+#: task_manager/templates/users/registration.html:15
+msgid "Зарегистрировать"
+msgstr ""
+
+#: task_manager/templates/users/user_delete.html:8
+msgid "Удаление пользователя"
+msgstr ""
+
+#: task_manager/templates/users/user_update.html:10
+msgid "Изменение пользователя"
+msgstr ""
+
+#: task_manager/templates/users/users_show.html:31
+msgid "Имя пользователя"
+msgstr ""
+
+#: task_manager/templates/users/users_show.html:32
+msgid "Полное имя"
+msgstr ""
+
+#: task_manager/views.py:33
+msgid "Вы залогинены"
+msgstr ""
+
+#: task_manager/views.py:40 task_manager/views.py:49
+msgid "Вы разлогинены"
+msgstr ""
