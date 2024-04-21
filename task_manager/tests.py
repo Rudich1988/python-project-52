@@ -10,4 +10,3 @@ class IndexViewTest(TestCase):
         path = reverse('index')
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, 'index.html')

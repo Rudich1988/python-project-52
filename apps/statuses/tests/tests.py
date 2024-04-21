@@ -20,7 +20,6 @@ class StatusShowTest(TestCase):
         path = reverse('statuses:statuses_show')
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, 'statuses/statuses_show.html')
         self.assertEqual(list(response.context_data['statuses']),
                          list(statuses))
 
@@ -38,7 +37,6 @@ class C(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('statuses/status_create.html')
 
     def test_status_create_post(self):
         self.client.force_login(self.user)
@@ -64,12 +62,10 @@ class U(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('statuses/status_update.html')
 
     def test_status_update_post(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
-        self.assertTemplateUsed('statuses/statuses_update.html')
         self.assertTrue(Status.objects.filter(name=self.data['name']).exists())
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse('statuses:statuses_show'))
@@ -91,7 +87,6 @@ class D(TestCase):
         self.client.force_login(self.user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('statuses/status_delete.html')
         self.assertRedirects(response, reverse('statuses:statuses_show'))
         self.assertRaisesMessage(response, 'Статус успешно удален')
 

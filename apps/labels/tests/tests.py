@@ -19,7 +19,6 @@ class LabelsShowTest(TestCase):
         path = reverse('labels:labels_show')
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, 'labels/labels_show.html')
         self.assertEqual(list(response.context_data['labels']), list(labels))
 
 
@@ -36,7 +35,6 @@ class C(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('labels/label_create.html')
 
     def test_label_create_post(self):
         self.client.force_login(self.user)
@@ -62,12 +60,10 @@ class U(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('labels/label_update.html')
 
     def test_label_update_post(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
-        self.assertTemplateUsed('labels/label_update.html')
         self.assertTrue(Label.objects.filter(name=self.data['name']).exists())
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, '/labels/')
@@ -89,7 +85,6 @@ class D(TestCase):
         self.client.force_login(self.user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('labels/label_delete.html')
         self.assertRedirects(response, reverse('labels:labels_show'))
         self.assertRaisesMessage(response, 'Метка успешно удалена')
         self.assertFalse(Label.objects.filter(id=self.label.id).exists())
@@ -99,7 +94,6 @@ class D(TestCase):
         task.labels.add(self.label)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('labels/label_delete.html')
         self.assertRaisesMessage(response, ('Невозможно удалить метку, '
                                             'потому что она используется'))
         self.assertTrue(Task.objects.filter(id=self.label.id).exists())

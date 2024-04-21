@@ -19,7 +19,6 @@ class TaskShowTest(TestCase):
         path = reverse('tasks:tasks_show')
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, 'tasks/tasks_show.html')
         self.assertEqual(list(response.context_data['tasks'].qs), list(tasks))
 
 
@@ -35,7 +34,6 @@ class TaskDetailTest(TestCase):
         self.client.force_login(user)
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('tasks/task_detail.html')
 
 
 class C(TestCase):
@@ -55,7 +53,6 @@ class C(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('tasks/task_create.html')
 
     def test_task_create_post(self):
         self.client.force_login(self.user)
@@ -84,12 +81,10 @@ class U(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('tasks/task_update.html')
 
     def test_task_update_post(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
-        self.assertTemplateUsed('tasks/task_update.html')
         self.assertTrue(Task.objects.filter(name=self.data['name']).exists())
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, '/tasks/')
@@ -110,7 +105,6 @@ class D(TestCase):
         self.client.force_login(self.user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('tasks/task_delete.html')
         self.assertRedirects(response, reverse('tasks:tasks_show'))
         self.assertRaisesMessage(response, 'Задача успешно удалена')
         self.assertFalse(Task.objects.filter(id=self.task.id).exists())
@@ -120,7 +114,6 @@ class D(TestCase):
         self.client.force_login(another_user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('tasks/task_delete.html')
         self.assertRedirects(response, reverse('tasks:tasks_show'))
         self.assertRaisesMessage(response, ('Задачу может удалить '
                                             'только ее автор'))

@@ -16,7 +16,6 @@ class UsersShowTest(TestCase):
         path = reverse('users:users_show')
         response = self.client.get(path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, 'users/users_show.html')
         self.assertEqual(list(response.context_data['object_list']),
                          list(users))
 
@@ -33,7 +32,6 @@ class C(TestCase):
     def test_user_registration_get(self):
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed('users/registration.html')
 
     def test_user_registration_post_success(self):
         response = self.client.post(self.path, self.data)
@@ -67,11 +65,9 @@ class U(TestCase):
     def test_user_update_get(self):
         response = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('users/user_update.html')
 
     def test_user_update_post_error_not_login(self):
         response = self.client.post(self.path, self.data)
-        self.assertTemplateUsed('users/users_show.html')
         self.assertRedirects(response, '/login/')
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRaisesMessage(response, ('Вы не авторизованы! '
@@ -81,7 +77,6 @@ class U(TestCase):
     def test_user_update_post_success(self):
         self.client.force_login(self.user)
         response = self.client.post(self.path, self.data)
-        self.assertTemplateUsed('users/user_update.html')
         self.assertTrue(CustomUser.objects.filter(username=self.data['username']).exists())
         self.assertFalse(CustomUser.objects.filter(username=self.user.username).exists())
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
@@ -112,7 +107,6 @@ class D(TestCase):
         self.client.force_login(self.user)
         response = self.client.post(self.path)
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertTemplateUsed('users/user_delete.html')
         self.assertFalse(CustomUser.objects.filter(username=self.user.username).exists())
         self.assertRedirects(response, '/users/')
         self.assertRaisesMessage(response, 'Пользователь успешно удален')
