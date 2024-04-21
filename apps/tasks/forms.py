@@ -1,3 +1,4 @@
+from typing import Any
 from django import forms
 from django.utils.translation import gettext
 
@@ -16,8 +17,7 @@ class TaskCreateForm(forms.ModelForm):
                                       required=False)
     author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
     labels = forms.ModelMultipleChoiceField(label=gettext('Метки'),
-                                            queryset=Label.objects.all(),
-                                            required=False)
+                                            queryset=Label.objects.all())
 
     class Meta:
         model = Task
