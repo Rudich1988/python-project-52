@@ -15,7 +15,7 @@ class TaskCreateForm(forms.ModelForm):
     executor = forms.ModelChoiceField(queryset=CustomUser.objects.all(),
                                       required=False)
     author = forms.ModelChoiceField(queryset=CustomUser.objects.all())
-    labels = forms.ModelMultipleChoiceField(label='Метки',
+    labels = forms.ModelMultipleChoiceField(label=gettext('Метки'),
                                             queryset=Label.objects.all(),
                                             required=False)
 
