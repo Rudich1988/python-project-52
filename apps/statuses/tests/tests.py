@@ -5,11 +5,11 @@ from django.urls import reverse
 
 
 from apps.statuses.models import Status
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.tasks.models import Task
 
 
-class StatusShowTestCase(TestCase):
+class StatusShowTest(TestCase):
     fixtures = ['apps/statuses/tests/fixtures/statuses.json',
                 'users/tests/fixtures/users.json']
 

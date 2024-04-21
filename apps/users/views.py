@@ -7,8 +7,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 
-from users.models import CustomUser
-from users.forms import UserRegistrationForm, UserUpdateForm
+from apps.users.models import CustomUser
+from apps.users.forms import UserRegistrationForm, UserUpdateForm
 from task_manager.common.views import ModificationUserMixin
 
 

@@ -3,9 +3,15 @@ from django.utils.translation import gettext_lazy as _, gettext
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-from users.models import CustomUser
-from users.help_error_texts import (USERNAME_HELP_TEXT, PASSWORD_ERROR_TEXT,
-                                    PASSWORD_HELP_TEXT, PASSWORD2_HELP_TEXT)
+from apps.users.models import CustomUser
+
+
+USERNAME_HELP_TEXT = ('Обязательное поле. Не более 150 символов. '
+                      'Только буквы, цифры и символы @/./+/-/_.')
+PASSWORD_ERROR_TEXT = ('Введённый пароль слишком короткий. '
+                       'Он должен содержать как минимум 3 символа.')
+PASSWORD_HELP_TEXT = 'Ваш пароль должен содержать как минимум 3 символа.'
+PASSWORD2_HELP_TEXT = 'Для подтверждения введите, пожалуйста, пароль ещё раз.'
 
 
 class UserRegistrationForm(UserCreationForm):

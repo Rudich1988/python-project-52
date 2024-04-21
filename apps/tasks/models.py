@@ -1,6 +1,6 @@
 from django.db import models
 
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.statuses.models import Status
 from apps.labels.models import Label
 

@@ -23,7 +23,7 @@ urlpatterns = [
     path('login/', views.UserLoginView.as_view(), name='login'),
     path('logout/', views.logoutview, name='logout'),
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls', namespace='users')),
+    path('users/', include('apps.users.urls', namespace='users')),
     path('statuses/', include('apps.statuses.urls', namespace='statuses')),
     path('tasks/', include('apps.tasks.urls', namespace='tasks')),
     path('labels/', include('apps.labels.urls', namespace='labels')),

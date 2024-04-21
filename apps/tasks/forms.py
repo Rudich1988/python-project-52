@@ -4,7 +4,7 @@ from django.utils.translation import gettext
 
 from apps.tasks.models import Task
 from apps.statuses.models import Status
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.labels.models import Label
 
 

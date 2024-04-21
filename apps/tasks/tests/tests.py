@@ -3,11 +3,11 @@ from django.test import TestCase
 from django.urls import reverse
 
 from apps.statuses.models import Status
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.tasks.models import Task
 
 
-class TaskShowTestCase(TestCase):
+class TaskShowTest(TestCase):
     fixtures = ['users/tests/fixtures/users.json',
                 'apps/statuses/tests/fixtures/statuses.json',
                 'apps/tasks/tests/fixtures/tasks.json']
@@ -23,7 +23,7 @@ class TaskShowTestCase(TestCase):
         self.assertEqual(list(response.context_data['tasks'].qs), list(tasks))
 
 
-class TaskDetailTestCase(TestCase):
+class TaskDetailTest(TestCase):
     fixtures = ['apps/tasks/tests/fixtures/tasks.json',
                 'users/tests/fixtures/users.json',
                 'apps/statuses/tests/fixtures/statuses.json']

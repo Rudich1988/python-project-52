@@ -4,11 +4,11 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.tasks.models import Task
 
 
-class UsersShowTestCase(TestCase):
+class UsersShowTest(TestCase):
     fixtures = ['users/tests/fixtures/users.json']
 
     def test_list(self):

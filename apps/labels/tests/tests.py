@@ -3,12 +3,12 @@ from http import HTTPStatus
 from django.test import TestCase
 from django.urls import reverse
 
-from users.models import CustomUser
+from apps.users.models import CustomUser
 from apps.tasks.models import Task
 from apps.labels.models import Label
 
 
-class LabelsShowTestCase(TestCase):
+class LabelsShowTest(TestCase):
     fixtures = ['apps/labels/tests/fixtures/labels.json',
                 'users/tests/fixtures/users.json']
 

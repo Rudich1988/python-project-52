@@ -5,8 +5,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
 from django.utils.translation import gettext as _
 
-from users.models import CustomUser
-from users.forms import UserLoginForm
+from apps.users.models import CustomUser
+from apps.users.forms import UserLoginForm
 
 
 class IndexView(TemplateView):
