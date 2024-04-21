@@ -39,12 +39,3 @@ def logoutview(request):
     logout(request)
     messages.info(request, _('Вы разлогинены'))
     return redirect('index')
-
-
-class UserLogoutView(LogoutView):
-    template_name = 'index.html'
-
-    def post(self, request, *args, **kwargs):
-        logout(request)
-        messages.info(request, _('Вы разлогинены'))
-        return redirect('index')

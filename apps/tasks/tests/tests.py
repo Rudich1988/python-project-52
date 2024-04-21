@@ -36,7 +36,7 @@ class TaskDetailTest(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
 
-class C(TestCase):
+class TaskCreateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/tasks.json']
@@ -63,7 +63,7 @@ class C(TestCase):
         self.assertRaisesMessage(response, 'Задача успешно создана')
 
 
-class U(TestCase):
+class TaskUpdateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/tasks.json',
                 'task_manager/fixtures/statuses.json']
@@ -91,7 +91,7 @@ class U(TestCase):
         self.assertRaisesMessage(response, 'Статус успешно изменен')
 
 
-class D(TestCase):
+class TaskDeleteTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/tasks.json']

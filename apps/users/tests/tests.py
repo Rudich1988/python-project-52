@@ -20,7 +20,7 @@ class UsersShowTest(TestCase):
                          list(users))
 
 
-class C(TestCase):
+class UserCreateTest(TestCase):
 
     def setUp(self):
         self.path = reverse('users:create_user')
@@ -50,7 +50,7 @@ class C(TestCase):
                                        'именем уже существует.'))
 
 
-class U(TestCase):
+class UserUpdateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json']
 
     def setUp(self):
@@ -94,7 +94,7 @@ class U(TestCase):
                                             'другого пользователя.'))
 
 
-class D(TestCase):
+class UserDeleteTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/tasks.json']

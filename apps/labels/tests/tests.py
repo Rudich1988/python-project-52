@@ -22,7 +22,7 @@ class LabelsShowTest(TestCase):
         self.assertEqual(list(response.context_data['labels']), list(labels))
 
 
-class C(TestCase):
+class LabelCreateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'apps/labels/tests/fixtures/labels.json']
 
@@ -45,7 +45,7 @@ class C(TestCase):
         self.assertRaisesMessage(response, 'Метка успешно создана')
 
 
-class U(TestCase):
+class LabelUpdateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'apps/labels/tests/fixtures/labels.json']
 
@@ -70,7 +70,7 @@ class U(TestCase):
         self.assertRaisesMessage(response, 'Метка успешно изменена')
 
 
-class D(TestCase):
+class LabelDeleteTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/tasks.json',

@@ -9,7 +9,7 @@ from apps.users.models import CustomUser
 from apps.tasks.models import Task
 
 
-class StatusShowTest(TestCase):
+class StatusesShowTest(TestCase):
     fixtures = ['task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/users.json']
 
@@ -24,7 +24,7 @@ class StatusShowTest(TestCase):
                          list(statuses))
 
 
-class C(TestCase):
+class StatusCreateTest(TestCase):
     fixtures = ['task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/users.json']
 
@@ -47,7 +47,7 @@ class C(TestCase):
         self.assertRaisesMessage(response, 'Статус успешно создан')
 
 
-class U(TestCase):
+class StatusUpdateTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json']
 
@@ -72,7 +72,7 @@ class U(TestCase):
         self.assertRaisesMessage(response, 'Статус успешно изменен')
 
 
-class D(TestCase):
+class StatusDeleteTest(TestCase):
     fixtures = ['task_manager/fixtures/users.json',
                 'task_manager/fixtures/statuses.json',
                 'task_manager/fixtures/tasks.json']
