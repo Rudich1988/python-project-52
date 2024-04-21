@@ -9,7 +9,7 @@ from apps.tasks.models import Task
 
 
 class UsersShowTest(TestCase):
-    fixtures = ['users/tests/fixtures/users.json']
+    fixtures = ['task_manager/fixtures/users.json']
 
     def test_list(self):
         users = CustomUser.objects.all()
@@ -53,7 +53,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users/tests/fixtures/users.json']
+    fixtures = ['task_manager/fixtures/users.json']
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='test1')
@@ -100,9 +100,9 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
-                'apps/statuses/tests/fixtures/statuses.json',
-                'apps/tasks/tests/fixtures/tasks.json']
+    fixtures = ['task_manager/fixtures/users.json',
+                'task_manager/fixtures/statuses.json',
+                'task_manager/fixtures/tasks.json']
 
     def setUp(self):
         self.user = CustomUser.objects.get(username='igor')

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-14 14:46+0000\n"
+"POT-Creation-Date: 2024-04-21 13:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: apps/tasks/forms.py:12
+
+#: apps/tasks/forms.py:12 apps/tasks/models.py:11
 msgid "Имя"
 msgstr "Name"
 
-#: apps/tasks/forms.py:28
+#: apps/tasks/forms.py:28 apps/tasks/models.py:19
 msgid "Статус"
 msgstr "Status"
 
-#: apps/tasks/forms.py:31
+#: apps/tasks/forms.py:31 apps/tasks/models.py:22
 msgid "Исполнитель"
 msgstr "Executor"
 
@@ -36,6 +37,20 @@ msgstr "Label"
 #: apps/tasks/forms.py:37
 msgid "Только свои задачи"
 msgstr "My tasks"
+
+#: apps/tasks/models.py:13
+msgid "Описание"
+msgstr "Description"
+
+#: apps/tasks/models.py:16
+msgid "Автор"
+msgstr "Author"
+
+#: apps/tasks/models.py:25
+#, fuzzy
+#| msgid "Метка"
+msgid "Метки"
+msgstr "Label"
 
 #: apps/tasks/views.py:21
 msgid "Задача успешно создана"

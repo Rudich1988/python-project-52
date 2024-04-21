@@ -10,8 +10,8 @@ from apps.tasks.models import Task
 
 
 class StatusShowTest(TestCase):
-    fixtures = ['apps/statuses/tests/fixtures/statuses.json',
-                'users/tests/fixtures/users.json']
+    fixtures = ['task_manager/fixtures/statuses.json',
+                'task_manager/fixtures/users.json']
 
     def test_status_show(self):
         user = CustomUser.objects.first()
@@ -26,8 +26,8 @@ class StatusShowTest(TestCase):
 
 
 class C(TestCase):
-    fixtures = ['apps/statuses/tests/fixtures/statuses.json',
-                'users/tests/fixtures/users.json']
+    fixtures = ['task_manager/fixtures/statuses.json',
+                'task_manager/fixtures/users.json']
 
     def setUp(self):
         self.path = reverse('statuses:status_create')
@@ -50,8 +50,8 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
-                'apps/statuses/tests/fixtures/statuses.json']
+    fixtures = ['task_manager/fixtures/users.json',
+                'task_manager/fixtures/statuses.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()
@@ -77,9 +77,9 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
-                'apps/statuses/tests/fixtures/statuses.json',
-                'apps/tasks/tests/fixtures/tasks.json']
+    fixtures = ['task_manager/fixtures/users.json',
+                'task_manager/fixtures/statuses.json',
+                'task_manager/fixtures/tasks.json']
 
     def setUp(self):
         self.user = CustomUser.objects.first()

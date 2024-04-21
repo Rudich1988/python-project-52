@@ -34,7 +34,7 @@ class UserDeleteView(ModificationUserMixin, SuccessMessageMixin, DeleteView):
     model = CustomUser
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users:users_show')
-    success_message = 'Пользователь успешно удален'
+    success_message = _('Пользователь успешно удален')
     permission_message = (_('Невозможно удалить пользователя, '
                           'потому что он используется'))
     permission_url = reverse_lazy('users:users_show')

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-14 14:46+0000\n"
+"POT-Creation-Date: 2024-04-21 13:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: users/forms.py:13 users/forms.py:33
+
+#: apps/users/forms.py:19 apps/users/forms.py:39
 msgid "Имя"
 msgstr "Name"
 
-#: users/forms.py:14 users/forms.py:34
+#: apps/users/forms.py:20 apps/users/forms.py:40
 msgid "Фамилия"
 msgstr "Last name"
 
-#: users/forms.py:15 users/forms.py:35
+#: apps/users/forms.py:21 apps/users/forms.py:41 apps/users/forms.py:59
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: users/forms.py:17 users/forms.py:37
+#: apps/users/forms.py:23 apps/users/forms.py:43 apps/users/forms.py:61
 msgid "Пароль"
 msgstr "Password"
 
-#: users/forms.py:20 users/forms.py:40
+#: apps/users/forms.py:26 apps/users/forms.py:46
 msgid "Подтверждение пароля"
 msgstr "Confirm password"
 
-#: users/views.py:20
+#: apps/users/views.py:20
 msgid "Пользователь успешно зарегистрирован"
 msgstr "The user has been successfully registered"
 
-#: users/views.py:38
+#: apps/users/views.py:37
+#, fuzzy
+#| msgid "Пользователь успешно изменен"
+msgid "Пользователь успешно удален"
+msgstr "The user has been successfully changed"
+
+#: apps/users/views.py:38
 msgid "Невозможно удалить пользователя, потому что он используется"
 msgstr "It is not possible to delete a user because it is being used"
 
-#: users/views.py:55
+#: apps/users/views.py:55
 msgid "Пользователь успешно изменен"
 msgstr "The user has been successfully changed"

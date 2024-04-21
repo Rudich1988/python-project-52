@@ -10,7 +10,7 @@ from apps.labels.models import Label
 
 class LabelsShowTest(TestCase):
     fixtures = ['apps/labels/tests/fixtures/labels.json',
-                'users/tests/fixtures/users.json']
+                'task_manager/fixtures/users.json']
 
     def test_labels_show(self):
         user = CustomUser.objects.first()
@@ -24,7 +24,7 @@ class LabelsShowTest(TestCase):
 
 
 class C(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
+    fixtures = ['task_manager/fixtures/users.json',
                 'apps/labels/tests/fixtures/labels.json']
 
     def setUp(self):
@@ -48,7 +48,7 @@ class C(TestCase):
 
 
 class U(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
+    fixtures = ['task_manager/fixtures/users.json',
                 'apps/labels/tests/fixtures/labels.json']
 
     def setUp(self):
@@ -75,9 +75,9 @@ class U(TestCase):
 
 
 class D(TestCase):
-    fixtures = ['users/tests/fixtures/users.json',
-                'apps/statuses/tests/fixtures/statuses.json',
-                'apps/tasks/tests/fixtures/tasks.json',
+    fixtures = ['task_manager/fixtures/users.json',
+                'task_manager/fixtures/statuses.json',
+                'task_manager/fixtures/tasks.json',
                 'apps/labels/tests/fixtures/labels.json']
 
     def setUp(self):
