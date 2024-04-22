@@ -20,4 +20,3 @@ lint:
 
 shell:
 	poetry shell
-
