@@ -1,4 +1,3 @@
-### Hexlet tests and linter status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/aceb29e3373cdf276005/maintainability)](https://codeclimate.com/github/Rudich1988/python-project-52/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/aceb29e3373cdf276005/test_coverage)](https://codeclimate.com/github/Rudich1988/python-project-52/test_coverage)
 
